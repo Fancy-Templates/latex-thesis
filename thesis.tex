@@ -1,0 +1,31 @@
+\documentclass[
+	verbose,
+	english,
+	%german,   % titles for a thesis in German, A4 paper
+	paper=a4,  % forces A4 format even if <german> is not selected (useful for printing)
+	% nomarginpar,
+	% oneside,   % onesided layout
+	% TODO: hints,     % shows instructions on how to write the thesis
+	%draft,    % omit title page, listings, and particular chapters selected below using include only
+	%print,    % the printed version does not use colored links
+	%final,    % removes all TODOs
+]{thesis}
+
+\title{My great thesis with a reaaaaally reaaaaally reaaaaally long title}
+% \subtitle{And the world it belongs to}
+\author{Florian Sihler}
+\titleimage[width=.15\linewidth]{img/title-banner-image}
+\date{\today}
+
+\usepackage{blindtext}
+
+\begin{document}
+	\maketitle
+
+	hello world\footnote{\the\marginparwidth Hello dello wello rello schello duello quell o} %\the\marginparwidth\marginpar{Hello dello wello rello schello duello quell o}
+	\blindtext
+
+	\tableofcontents
+
+	\Blinddocument
+\end{document}
