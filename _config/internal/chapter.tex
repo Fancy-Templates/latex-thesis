@@ -97,7 +97,7 @@
    \thesis@chaptertoc@style
    \thesis@chaptertoc@install
 }
-
+\usepackage{etoolbox}
 \xapptocmd\addtocentrydefault{%
 \ifusechaptertoc%
     \Ifstr{#1}{section}% only do for sections
