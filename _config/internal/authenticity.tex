@@ -12,14 +12,14 @@
 	\begin{minipage}[b]{.5\textwidth-5mm}
 		\begin{tikzpicture}
 			\draw[lcr,lw] (0,0) -- (\textwidth,0);
-			\node[name] at (0,0) {Location, Date};
+			\node[name] at (0,0) {\strut Location, Date};
 			\node[content] at (0,0) {\handfont Ulm, \@date};
 		\end{tikzpicture}
 	\end{minipage}\hfill
 	\begin{minipage}[b]{.5\textwidth-5mm}
 		\begin{tikzpicture}
 			\draw[lcr,lw] (0,0) -- (\textwidth,0);
-			\node[name] at (0,0) {\@author};
+			\node[name] at (0,0) {\strut\@author};
 			\@ifundefined{@signature}
 				{\node[content] at (0,0) {\handfont\@author};}
 				{\node[content,sigshift] at (0,0) {\includegraphics[width=4cm]{\@signature}};}
