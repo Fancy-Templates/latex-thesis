@@ -1,10 +1,9 @@
 \RequirePackage{tikz}
-\RequirePackage{pbsi} % font
 
 \tikzset{sigshift/.style={}}
 \newcommand*\signature[2][]{\def\@signature{#2}\tikzset{sigshift/.style={#1}}}
 
-\def\@signarea{\def\lw{1.1pt}\def\handfont{\bsifamily\color{handwritingblue}}%
+\def\@signarea{\def\lw{1.1pt}%
 	\tikzset{inline/.style={inner sep=0pt,outer sep=0pt},
 	lcr/.style={line cap=round},lw/.style={line width=\lw},
 	name/.style={anchor=north west,inline,yshift=-5pt},
@@ -13,16 +12,13 @@
 		\begin{tikzpicture}
 			\draw[lcr,lw] (0,0) -- (\textwidth,0);
 			\node[name] at (0,0) {\strut Location, Date};
-			\node[content] at (0,0) {\handfont Ulm, \@date};
 		\end{tikzpicture}
 	\end{minipage}\hfill
 	\begin{minipage}[b]{.5\textwidth-5mm}
 		\begin{tikzpicture}
 			\draw[lcr,lw] (0,0) -- (\textwidth,0);
 			\node[name] at (0,0) {\strut\@author};
-			\@ifundefined{@signature}
-				{\node[content] at (0,0) {\handfont\@author};}
-				{\node[content,sigshift] at (0,0) {\includegraphics[width=4cm]{\@signature}};}
+			\@ifundefined{@signature}{}{\node[content,sigshift] at (0,0) {\includegraphics[width=4cm]{\@signature}};}
 		\end{tikzpicture}
 	\end{minipage}
 }
