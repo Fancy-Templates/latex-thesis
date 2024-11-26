@@ -81,7 +81,17 @@
    \@advisors
 \end{itemize}
 \fi
-% TODO: supervisors?
+\vskip0.5cm
+{\bfseries\ifnum\value{thesis@supervisors}=1
+   \translate{supervisor-singular}%
+\else\ifnum\value{thesis@supervisors}>1
+   \translate{supervisor-plural}%
+\fi\fi\smallskip}
+\ifnum\value{thesis@supervisors}>0
+\begin{itemize}[leftmargin=*,nosep,itemsep=\smallskipamount]
+   \@supervisors
+\end{itemize}
+\fi
 \vfill\vfill\vfill
 % \dimexpr\linewidth+\marginparsep+\marginparwidth
 {\footnotesize\begin{tabularx}{\linewidth}{@{}lX@{}}
