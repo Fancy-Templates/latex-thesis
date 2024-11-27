@@ -149,6 +149,7 @@
 \thesis@internal@load{license}
 \thesis@internal@load{floats}
 \thesis@internal@load{titlepage}
+\thesis@internal@load{authenticity}
 % TODO: proper math before hyperref to guard for cleveref
 \RequirePackage{mathtools}
 \thesis@internal@load{hyperref}
