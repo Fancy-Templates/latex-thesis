@@ -17,8 +17,10 @@
 \def\@institute{\textcolor{purple}{\textbf{Please specify an institute with \texttt{\textbackslash institute}}}}
 
 \newcounter{thesis@advisors}
+\newcounter{thesis@supervisors}
 % name | university
 \def\advisor#1#2{\stepcounter{thesis@advisors}\appto\@advisors{\item #1\\\textit{#2}}}
+\def\supervisor#1#2{\stepcounter{thesis@supervisors}\appto\@supervisors{\item #1\\\textit{#2}}}
 \def\university#1{\def\@university{#1}}
 \def\thesisYear#1{\def\@year{#1}}
 \thesisYear{\the\year}
