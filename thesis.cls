@@ -13,7 +13,7 @@
 \DeclareBoolOption{verbose}
 \DeclareStringOption[_config]{configpath}
 \DeclareStringOption[uulm-sp]{profile}
-\DeclareStringOption[\translate{master-thesis}]{type}
+\DeclareStringOption[master-thesis]{type}
 \DeclareStringOption[CCBY]{license}
 \DeclareStringOption[\translate{computer-science}]{field}
 \DeclareBoolOption{print}
