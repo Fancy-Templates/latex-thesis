@@ -1,11 +1,10 @@
 \documentclass[
 	verbose,
 	english,
+	type=bachelor-thesis, % master-thesis
 	%german,   % titles for a thesis in German, A4 paper
 	paper=a4,  % forces A4 format even if <german> is not selected (useful for printing)
-	% nomarginpar,
-	% oneside,   % onesided layout
-	% TODO: hints,     % shows instructions on how to write the thesis
+	%oneside,   % onesided layout
 	%draft,    % omit title page, listings, and particular chapters selected below using include only
 	%print,    % the printed version does not use colored links
 	%final,    % removes all TODOs
@@ -14,15 +13,43 @@
 \addbibresource{literature/literature.bib}
 
 \title{My great thesis with a reaaaaally reaaaaally reaaaaally long title}
-% \subtitle{And the world it belongs to}
-\author{Florian Sihler}
+\author{Your amazing Name}
+
 \titleimage[width=.15\linewidth]{img/title-banner-image}
 \date{\today}
 
-\usepackage{blindtext}
+\advisor{Prof. Dr. Matthias Tichy}{Institute of Software Engineering and Programming Languages}
+% \advisor{Your Second Examiner}{Their Institute}
+\supervisor{Florian Sihler}{Institute of Software Engineering and Programming Languages}
 
 \begin{document}
 	\maketitle
+\hideindraft{
+	\frontmatter
+		\maketitle
+	
+		\input{segments/abstract}
+		\input{segments/acknowledgements}
+	
+		\tableofcontents
+		\listoffigures
+		\listoftables
+	}
+	
+	\mainmatter
+	\input{segments/introduction}
+	\input{segments/related-work}
+	\input{segments/concept}
+	\input{segments/implementation}
+	\input{segments/evaluation}
+	\input{segments/conclusion}
+	
+	hello world\footnote{\the\marginparwidth Hello dello wello rello schello duello quell o} %\the\marginparwidth\marginpar{Hello dello wello rello schello duello quell o}
+
+	\cite{DBLP:conf/msr/SihlerPSTDD24}
+
+	\backmatter
+	\printbibliography
 
 	% specify \signature{path/to/signature.png} to include a signature
 	% you can also shift the signature with \signature[xshift=0pt,yshift=0pt]{path/to/signature.png}
@@ -30,11 +57,4 @@
 	% \begin{declarationofauthenticity} % when you want to write your own text
 	% 	No, I definitely did not copy all my code from StackOverflow. I swear!
 	% \end{declarationofauthenticity}
-
-	hello world\footnote{\the\marginparwidth Hello dello wello rello schello duello quell o} %\the\marginparwidth\marginpar{Hello dello wello rello schello duello quell o}
-	\blindtext
-
-	\tableofcontents
-
-	\Blinddocument
 \end{document}

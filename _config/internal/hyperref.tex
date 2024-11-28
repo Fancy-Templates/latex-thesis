@@ -36,7 +36,7 @@
 \let\nohyper\thesis@disablehyper
 \ifthesis@draft\else
 \AtBeginDocument{%
-   {\protected@edef\@subject{\thesis@type}\def\nl{\space}%
+   {\protected@edef\@subject{\translate{\thesis@type}}\def\nl{\space}%
    \hypersetup{%
       pdftitle={\@title},
       pdfauthor={\@author},

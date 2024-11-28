@@ -11,7 +11,7 @@
 	\begin{minipage}[b]{.5\textwidth-5mm}
 		\begin{tikzpicture}
 			\draw[lcr,lw] (0,0) -- (\textwidth,0);
-			\node[name] at (0,0) {\strut Location, Date};
+			\node[name] at (0,0) {\strut\translate{location}, \translate{date}};
 		\end{tikzpicture}
 	\end{minipage}\hfill
 	\begin{minipage}[b]{.5\textwidth-5mm}
@@ -22,15 +22,13 @@
 		\end{tikzpicture}
 	\end{minipage}
 }
-\def\@sigskip{\vskip32.0pt plus 7.0pt minus 7.0pt}
+\def\@sigskip{\vskip32\p@ plus 7\p@ minus 7\p@}
 
 \newenvironment{declarationofauthenticity}
-	{\cleardoublepage\begingroup\section*{\translate{authenticity}}}
+	{\cleardoublepage\thispagestyle{plain}\begingroup\section*{\translate{authenticity}}}
 	{\par\@sigskip\@signarea\thesis@voidpar\endgroup\bigskip\thesis@voidpar}
 
-\def\makedeclarationofauthenticity{\begin{declarationofauthenticity}
-	I, \@author, hereby declare that this master thesis is my own unaided work. All
-	direct or indirect sources used are acknowledged and referenced. This master thesis
-	was not previously presented to another examination board and has not been published
-	as of yet.
-\end{declarationofauthenticity}}
+
+\def\makedeclarationofauthenticity{\AtEndDocument{\begin{declarationofauthenticity}
+	\translate{declaration-of-authenticity}
+\end{declarationofauthenticity}}}
