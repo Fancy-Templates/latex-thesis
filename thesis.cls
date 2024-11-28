@@ -92,6 +92,7 @@
         \thesis@error{unable to find '#1' internally (searched at \thesis@internal@path/#1.tex)}{Please make sure the file is present.}%
     }%
 }
+\let\ThesisInternal\thesis@internal@load
 % endregion
 
 % region load class

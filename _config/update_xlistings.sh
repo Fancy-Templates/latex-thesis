@@ -1,0 +1,1 @@
+wget -O ./xlistings.sty https://raw.githubusercontent.com/EagleoutIce/xlistings/refs/heads/main/xlistings.sty
