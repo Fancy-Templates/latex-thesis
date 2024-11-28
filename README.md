@@ -1,9 +1,5 @@
 # The Thesis Template
 
-## ToDos
-
-- Force Sidebar
-
 ## Included Commands
 
 Macros are prefixed with `\`, the others are environments.
