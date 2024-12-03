@@ -16,6 +16,9 @@
 \ThesisInternal{listings}
 \LoadLanguage{R}
 
+% do you have a glossary?
+\loadglsentries{segments/glossary.tex}
+
 \title{My great thesis with a reaaaaally reaaaaally reaaaaally long title}
 \author{Your amazing Name}
 
@@ -53,6 +56,11 @@
 
 	\backmatter
 	\printbibliography
+
+	\let\clearpage\newpage
+	\let\cleardoublepage\newpage
+	\chapter{Glossary and Acronyms}
+	\printglossaries
 
 	% specify \signature{path/to/signature.png} to include a signature
 	% you can also shift the signature with \signature[xshift=0pt,yshift=0pt]{path/to/signature.png}

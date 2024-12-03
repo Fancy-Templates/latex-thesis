@@ -1,6 +1,7 @@
 # used by the l3build system
 build/
 thesis.pdf
+*-SAVE-ERROR
 
 # LaTeX gitignore
 
