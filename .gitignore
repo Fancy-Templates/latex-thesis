@@ -1,6 +1,7 @@
 # used by the l3build system
 build/
 thesis.pdf
+*-SAVE-ERROR
 
 # LaTeX gitignore
 
@@ -122,6 +123,8 @@ acs-*.bib
 *.lzs
 *.slnc
 *.nto
+*.nts
+*.ntsl
 
 # uncomment this for glossaries-extra (will ignore makeindex's style files!)
 # *.ist

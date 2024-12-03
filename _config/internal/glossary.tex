@@ -171,7 +171,7 @@
 }
 \robustify\thesissidenoteGls
 \def\thesissidenoteSymbol{%
-   \global\glsshouldbeittrue\thesisgls@lockForPage{\thesissidenotesymbol\sidenote{\protect\disablesidefalse\protect\glslink{\glslabel}{\textbf{{\glssymbol{\glslabel}}}}:\protect\disablesidetrue\protect\space\thesis@shortgls}}{\glslabel}{\global\glsshouldbeitfalse\thesissidenotesymbol}%
+   \ifmmode\thesissidenotesymbol\else\global\glsshouldbeittrue\thesisgls@lockForPage{\thesissidenotesymbol\sidenote{\protect\disablesidefalse\protect\glslink{\glslabel}{\textbf{{\glssymbol{\glslabel}}}}:\protect\disablesidetrue\protect\space\thesis@shortgls}}{\glslabel}{\global\glsshouldbeitfalse\thesissidenotesymbol}\fi%
 }
 \robustify\thesissidenoteSymbol
 
@@ -192,6 +192,11 @@
    \global\glsshouldbeittrue\thesisgls@lockForPage{\sidenote{\protect\disablesidefalse\protect\glslink{\glslabel}{\textbf{{\glssymbol{\glslabel}}}}:\protect\disablesidetrue\protect\space\thesis@shortgls}}{\glslabel}{}%
    \fi\endgroup
 }
+\RequirePackage{pgffor}
+\def\showsymbols{\@ifstar\@showsymbols\@sh@wsymbols}
+\def\@showsymbols#1{\smash{\clap{\foreach \x in {#1}{\GlsResetSide{\x}\sidesymbol{\x}}}}}
+\def\@sh@wsymbols#1{\smash{\clap{\foreach \x in {#1}{\sidesymbol{\x}}}}}%
+
 
 \def\glsac#1{\glsentrylong{#1} (\gls{#1})}
 \def\glsplac#1{\glsentrylongpl{#1} (\glspl{#1})}
