@@ -13,7 +13,28 @@ print(x)
 \end{minted}
 
 
-To interpret the program above, we take the set of \gls{not:N}, \gls{not:Z}, and \gls{not:R} because they describe funny numbers that we can use to index what we call an \gls{ast}. Now we can use a \gls{cpo} or verify the \gls{def:behavioral-equivalence} when interpreting the code as a \gls{formal:model}.
+To interpret the program above, we take the set of \gls{not:N}, \gls{not:Z}, and \gls{not:R} because they describe funny numbers that we can use to index what we call an \gls{ast} (if you want the long form use \texttt{\textbackslash glsac}: \glsac{ast}). Now we can use a \gls{cpo} or verify the \gls{def:behavioral-equivalence} when interpreting the code as a \gls{formal:model}.
+\gls{not:N} will not be repeated on this page!
+
+Using the \texttt{\textbackslash glssym} macro defined in the preamble you can even color symbol uses such as \glssym{not:N} automatically if this is to your liking:
+\begin{align}
+   \glssym{not:N} &= \{1, 2, \ldots\} \\
+   \glssym{not:Z} &= \glssym{not:N} \cup \{0\} \cup \{-1, -2, \ldots\} \\
+   \glssym{not:R} &= \textit{Set of real numbers} \\
+   \glssym{not:C} &= \textit{Set of complex numbers} \\
+   \glssym{not:N} &\subset \glssym{not:Z} \subset \glssym{not:R} % \subset \glssym{not:C}
+\end{align}
+
+However, as you may see, \glssym{not:C} is not shown in the sidebar even though it appears first within the math mode. The reason(s) for this are manifold but in short we avoided this as math mode may be rendered multiple times. 
+You can use \texttt{\textbackslash showsymbols} to propose a list of symbols to show before the math environment (using \texttt{\textbackslash showsymbols*} these will be forced as showcased below):
+\begin{align}
+   \showsymbols*{not:N,not:Z,not:R,not:C}
+   \glssym{not:N} &= \{1, 2, \ldots\} \\
+   \glssym{not:Z} &= \glssym{not:N} \cup \{0\} \cup \{-1, -2, \ldots\} \\
+   \glssym{not:R} &= \textit{Set of real numbers} \\
+   \glssym{not:C} &= \textit{Set of complex numbers} \\
+   \glssym{not:N} &\subset \glssym{not:Z} \subset \glssym{not:R} % \subset \glssym{not:C}
+\end{align}
 
 \section{Problem Statement}
 

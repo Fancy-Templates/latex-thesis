@@ -123,6 +123,8 @@ acs-*.bib
 *.lzs
 *.slnc
 *.nto
+*.nts
+*.ntsl
 
 # uncomment this for glossaries-extra (will ignore makeindex's style files!)
 # *.ist
