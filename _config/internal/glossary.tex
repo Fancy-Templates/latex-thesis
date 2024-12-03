@@ -145,15 +145,56 @@
 
 \def\GlsResetSide#1{\checkoddpage\csundef{gls@lock@#1@\number\oddpage@page}}
 
+% at beginning of every math mode, define an empty list
+% we use these lock-lists as math mode typesets twice with out a reliable way to detect whether we are in teh first or second pass.
+% with this we counteract cases in which the same symbol appears multiple time in the math mode ~> we only trigger for the first
+% use within each math mode (and have such a list to escape scopes added by the user)
+\appto\mathopen{\global\let\@gls@locked@list\@empty}
+% do the same for inline math
+
+\newif\if@glss@isin@locklist
+% #1 label #2 when #3 then
+\def\@gls@isin@locklist#1#2#3{%
+   \@glss@isin@locklistfalse
+   \protected@edef\@check{#1}%
+   \@for\@tmp@lock@list:=\@gls@locked@list\do{%
+      \ifx\@tmp@lock@list\@check
+         \@glss@isin@locklisttrue
+      \fi
+   }%
+   \if@glss@isin@locklist#2\else#2\fi
+}
+
+
+
 % #1 will only be executed if not locked; #2 is the label; #3 is else
 \def\thesisgls@lockForPage#1#2#3{\ifthesisglsinside% we identify the exact page:
    \checkoddpage% used so i do not have to fiddle with page label
-   % we lock the current label for the page;
+   % we lock the current label for the page; in math mode we have to do so twice to account for pre typeset calculations
+\ifmmode
+   A \csname @gls@locked@list\endcsname B
+   \ifcsname @gls@lock@#2@\number\oddpage@page @@\endcsname
+      % if the character is already in the list, we yield #3
+      \@gls@isin@locklist{#2}{#3}{%
+      \xappto\@gls@locked@list{{#2}}%
+      \ifcsname gls@lock@#2@\number\oddpage@page\endcsname
+      {#3}%
+      \else
+      \expandafter\gdef\csname gls@lock@#2@\number\oddpage@page\endcsname{}\relax
+      #1\fi}
+   \else 
+      \expandafter\gdef\csname @gls@lock@#2@\number\oddpage@page @@\endcsname{}\relax
+      % append to the list
+      \xappto\@gls@locked@list{{#2}}%
+      #1
+   \fi
+\else
    \ifcsname gls@lock@#2@\number\oddpage@page\endcsname
    {#3}%
    \else
    \expandafter\gdef\csname gls@lock@#2@\number\oddpage@page\endcsname{}\relax
    #1\fi
+\fi
 \else
    #3%
 \fi}
