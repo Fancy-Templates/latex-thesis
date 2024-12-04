@@ -1,5 +1,13 @@
 # The Thesis Template
 
+Adapt the following for a link to the newest build:
+
+`https://spgit.informatik.uni-ulm.de/code-inspect/theses/<PATH>/-/jobs/artifacts/main/raw/<FILENAME>.pdf?job=build-pdf`
+
+For example:
+
+[https://spgit.informatik.uni-ulm.de/code-inspect/theses/pengu-peter-master-thesis/proposal/-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf](./-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf)
+
 ## Included Commands
 
 Macros are prefixed with `\`, the others are environments.
