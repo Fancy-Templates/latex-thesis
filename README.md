@@ -6,7 +6,7 @@ Adapt the following for a link to the newest build:
 
 For example:
 
-[https://spgit.informatik.uni-ulm.de/code-inspect/theses/pengu-peter-master-thesis/proposal/-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf](./-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf)
+[https://spgit.informatik.uni-ulm.de/code-inspect/theses/pengu-peter-master-thesis/thesis/-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf](../-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf)
 
 ## Included Commands
 
