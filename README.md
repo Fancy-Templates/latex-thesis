@@ -1,12 +1,17 @@
 # The Thesis Template
 
+[Newest Build of PDF](../-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf)
+
+<details>
+<summary> On newest Builds </summary>
 Adapt the following for a link to the newest build:
 
 `https://spgit.informatik.uni-ulm.de/code-inspect/theses/<PATH>/-/jobs/artifacts/main/raw/<FILENAME>.pdf?job=build-pdf`
 
 For example:
+<https://spgit.informatik.uni-ulm.de/code-inspect/theses/pengu-peter-master-thesis/thesis/-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf>
 
-[https://spgit.informatik.uni-ulm.de/code-inspect/theses/pengu-peter-master-thesis/thesis/-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf](../-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf)
+</details>
 
 ## Included Commands
 
