@@ -1,5 +1,6 @@
 \RequirePackage{tikz}
 \RequirePackage[calc, en-US]{datetime2}
+\DTMlangsetup{abbr}
 
 \tikzset{sigshift/.style={}}
 \newcommand*\signature[2][]{\def\@signature{#2}\tikzset{sigshift/.style={#1}}}
