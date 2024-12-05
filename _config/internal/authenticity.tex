@@ -1,4 +1,5 @@
 \RequirePackage{tikz}
+\RequirePackage[calc, en-US]{datetime2}
 
 \tikzset{sigshift/.style={}}
 \newcommand*\signature[2][]{\def\@signature{#2}\tikzset{sigshift/.style={#1}}}
@@ -12,6 +13,7 @@
 		\begin{tikzpicture}
 			\draw[lcr,lw] (0,0) -- (\textwidth,0);
 			\node[name] at (0,0) {\strut\translate{location}, \translate{date}};
+\@ifundefined{@signature}{}{\node[content,sigshift, yshift=\lw/2+3.5pt] at (0,0) {\Large Ulm \quad \DTMtoday};}
 		\end{tikzpicture}
 	\end{minipage}\hfill
 	\begin{minipage}[b]{.5\textwidth-5mm}
