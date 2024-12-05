@@ -13,6 +13,8 @@ For example:
 
 </details>
 
+Please note, that you require `perl` to compile the document if you want to have a glossary (it should be part of texlive). The `makeglossaries` command does not work without it.
+
 ## Included Commands
 
 Macros are prefixed with `\`, the others are environments.
