@@ -38,6 +38,7 @@ The list contains only macros that i consider to be useful in the main document 
 | `\sideref#1` | document | `\sideref{sec:mysec}` | Essentially the command automatically issued by `\cref` to place the corresponding reference in the sidebar. |
 | `\link#1#2`, `\link*#1#2` | document | `\link{sec:mysec}{Super Text}` | Essentially `\hyperref[#1]{\itshape#2}`. Without the star, this is automatically placed within the sidebar. With the star, the link is still active, but no longer highlighted. |
 | `\sidenote[#1]#2`, `\sidenote*[#1]{#2}` | document | `\sidenote{Hello}` | Places the content in the sidebar. The optional argument can be used for vertical shift adjustments (usually not necessary). The unstarred version does expand its argument (obeying protection rules), the starred version does not. I.e., use the starred version for fragile content (if in doubt, its probably better to use the starred version). |
+| `subfigure` | document | `\begin{subfigure}...\end{subfigure}` | Partitions a figure environment to include several subfigures for better grouping in the document.|
 
 ### Provided by Included Packages
 
