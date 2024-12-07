@@ -36,6 +36,21 @@ You can use \texttt{\textbackslash showsymbols} to propose a list of symbols to 
    \glssym{not:N} &\subset \glssym{not:Z} \subset \glssym{not:R} % \subset \glssym{not:C}
 \end{align}
 
+A viable way to group different figures is the \textit{subfigures} command, a short example can be seen at \cref(fig:first).
+
+\begin{figure}
+   \begin{subfigure}{0.25\textwidth}
+      \includegraphics[width=\textwidth]{img/example.pdf}
+      \caption{First subfigure.}
+      \label{fig:first}
+  \end{subfigure}
+  \begin{subfigure}{0.25\textwidth}
+      \includegraphics[width=\textwidth]{img/example.pdf}
+      \caption{Second subfigure.}
+      \label{fig:second}
+   \end{subfigure}
+\end{figure}
+
 \section{Problem Statement}
 
 \section{Contributions}
