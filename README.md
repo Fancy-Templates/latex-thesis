@@ -15,6 +15,20 @@ For example:
 
 Please note, that you require `perl` to compile the document if you want to have a glossary (it should be part of texlive). The `makeglossaries` command does not work without it.
 
+- [The Thesis Template](#the-thesis-template)
+  - [Building the Thesis](#building-the-thesis)
+  - [Included Commands](#included-commands)
+    - [Provided by the Template](#provided-by-the-template)
+    - [Provided by Included Packages](#provided-by-included-packages)
+
+## Building the Thesis
+
+Any (pdf-)LaTeX compiler should have no problem in compiling the document (even if that is in the context of the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension for [VS Code](https://code.visualstudio.com/) or the [TeXStudio](https://www.texstudio.org/) editor)
+. For ease of use, we have included a `.latexmkrc` for the [latexmk](https://ctan.org/pkg/latexmk) to compile the document.
+With it, simply running `latexmk` should give you the thesis, `latexmk -c` should perform a (small) cleanup and `latexmk -pvc` should continuously compile the document (useful for live previews).
+
+
+
 ## Included Commands
 
 Macros are prefixed with `\`, the others are environments.
