@@ -4,6 +4,7 @@ $out_dir = './';                            # all the outputs will appear in thi
 $postscript_mode = 0;                       # don't use postscript
 $dvi_mode = 0;                              # don't use dvi
 $pdflatex = 'pdflatex %O -shell-escape %S'; # enable shell escape
+$max_repeat = 12;                           # maximum number of times to run latex
 
 # based on https://tex.stackexchange.com/a/44316
 add_cus_dep('glo', 'gls', 0, 'run_makeglossaries');
