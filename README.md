@@ -18,8 +18,12 @@ Please note, that you require `perl` to compile the document if you want to have
 ## Building the Thesis
 
 Any (pdf-)LaTeX compiler should have no problem in compiling the document (even if that is in the context of the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension for [VS Code](https://code.visualstudio.com/) or the [TeXStudio](https://www.texstudio.org/) editor)
-. For ease of use, we have included a `.latexmkrc` for the [latexmk](https://ctan.org/pkg/latexmk) to compile the document.
+. For ease of use, we have included a [`.latexmkrc`](.latexmkrc) for the [latexmk](https://ctan.org/pkg/latexmk) to compile the document.
 With it, simply running `latexmk` should give you the thesis, `latexmk -c` should perform a (small) cleanup and `latexmk -pvc` should continuously compile the document (useful for live previews).
+
+### How to Use LuaLateX
+
+The thesis offers built-in support for LuaLateX (although _pdflatex_ is recommended and the priority) and it is up to you to change the respective engine within your IDE. For the [`.latexmkrc`](.latexmkrc) you should update the _pdf mode_ from `$pdf_mode = 1;` to `$pdf_mode = 4;`.
 
 ## Included Commands
 

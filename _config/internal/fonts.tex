@@ -8,11 +8,10 @@
 \ifthesis@palatino
     \thesis@debug{Loading Palatino font}
     \setmainfont[Ligatures=TeX,Numbers=OldStyle]{TeX Gyre Pagella}
-    \linespread{1.07}
 \fi
 \ifthesis@beramono
     \thesis@debug{Loading Beramono font}% used by classicthesis
-    \setmainfont[Scale=0.85]{DejaVu Sans Mono}
+    \setmonofont[Scale=0.85]{DejaVu Sans Mono}
 \fi
 \else
 \RequirePackage[utf8]{inputenc}
@@ -40,12 +39,18 @@
     \RequirePackage{FiraSans}
 \fi
 
-% TODO: support
+\RequirePackage{siunitx}
+\sisetup{number-mode=match,round-mode=places,round-pad=false,group-minimum-digits=4,group-separator=\;}%
+
 % % use lining figures in tables
-% \def\LiningFont{\figureversion{lf}\sisetup{text-font-command=\figureversion{lf}}}
-% \AtBeginEnvironment{tabular}{\LiningFont}
-% \AtBeginEnvironment{tabularx}{\LiningFont}
-% \AtBeginEnvironment{longtable}{\LiningFont}
+\ifluatex
+\RequirePackage{unicode-math}\def\LiningFigures{\addfontfeatures{Numbers=Lining}\sisetup{text-font-command=\addfontfeatures{Numbers=Lining}}}
+\else\def\LiningFigures{\figureversion{lf}\selectfont\sisetup{text-font-command=\figureversion{lf}\selectfont}}
+\fi
+
+\AtBeginEnvironment{tabular}{\LiningFigures}
+\AtBeginEnvironment{tabularx}{\LiningFigures}
+\AtBeginEnvironment{longtable}{\LiningFigures}
 
 % more space to breathe
 \DeclareRobustCommand{\scshapespaced}{\SetTracking{encoding=*}{95}\scshape}
