@@ -27,8 +27,6 @@ Any (pdf-)LaTeX compiler should have no problem in compiling the document (even 
 . For ease of use, we have included a `.latexmkrc` for the [latexmk](https://ctan.org/pkg/latexmk) to compile the document.
 With it, simply running `latexmk` should give you the thesis, `latexmk -c` should perform a (small) cleanup and `latexmk -pvc` should continuously compile the document (useful for live previews).
 
-
-
 ## Included Commands
 
 Macros are prefixed with `\`, the others are environments.
