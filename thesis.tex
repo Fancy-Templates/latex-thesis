@@ -21,15 +21,15 @@
 % do you want colored glossary symbols in the document?
 \def\glssym#1{{\color{purple!80!blue}\gls{#1}}}
 
-\title{My great thesis with a reaaaaally reaaaaally reaaaaally long title}
-\author{Your amazing Name}
+\title{My Great Thesis with a Reaaaaally Reaaaaally Reaaaaally Long Title}
+\author{Your Amazing Name}
 
 \titleimage[width=.15\linewidth]{img/title-banner-image}
 \date{\today}
 
 \advisor{Prof. Dr. Matthias Tichy}{Institute of Software Engineering and Programming Languages}
 % \advisor{Your Second Examiner}{Their Institute}
-\supervisor{Florian Sihler	}{Institute of Software Engineering and Programming Languages}
+\supervisor{Florian Sihler}{Institute of Software Engineering and Programming Languages}
 
 \begin{document}
 \hideindraft{
@@ -66,6 +66,10 @@
 
 	% specify \signature{path/to/signature.png} to include a signature
 	% you can also shift the signature with \signature[xshift=0pt,yshift=0pt]{path/to/signature.png}
+	% if you want to set the location of the signature, use
+	\signaturelocation{Ulm}
+	% if you want to set the submission date of the declaration, use
+	\signaturedate{2025-12-30}
 	\makedeclarationofauthenticity % for a predefined declaration of authenticity
 	% \begin{declarationofauthenticity} % when you want to write your own text
 	% 	No, I definitely did not copy all my code from StackOverflow. I swear!
