@@ -1,5 +1,3 @@
-# The Thesis Template
-
 [Newest Build of PDF](../-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf)
 
 <details>
@@ -14,6 +12,14 @@ For example:
 </details>
 
 Please note, that you require `perl` to compile the document if you want to have a glossary (it should be part of texlive). The `makeglossaries` command does not work without it.
+
+[[_TOC_]]
+
+## Building the Thesis
+
+Any (pdf-)LaTeX compiler should have no problem in compiling the document (even if that is in the context of the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension for [VS Code](https://code.visualstudio.com/) or the [TeXStudio](https://www.texstudio.org/) editor)
+. For ease of use, we have included a `.latexmkrc` for the [latexmk](https://ctan.org/pkg/latexmk) to compile the document.
+With it, simply running `latexmk` should give you the thesis, `latexmk -c` should perform a (small) cleanup and `latexmk -pvc` should continuously compile the document (useful for live previews).
 
 ## Included Commands
 
