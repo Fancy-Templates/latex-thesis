@@ -1,5 +1,3 @@
-# The Thesis Template
-
 [Newest Build of PDF](../-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf)
 
 <details>
@@ -15,11 +13,7 @@ For example:
 
 Please note, that you require `perl` to compile the document if you want to have a glossary (it should be part of texlive). The `makeglossaries` command does not work without it.
 
-- [The Thesis Template](#the-thesis-template)
-  - [Building the Thesis](#building-the-thesis)
-  - [Included Commands](#included-commands)
-    - [Provided by the Template](#provided-by-the-template)
-    - [Provided by Included Packages](#provided-by-included-packages)
+[[_TOC_]]
 
 ## Building the Thesis
 
