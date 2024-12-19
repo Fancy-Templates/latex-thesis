@@ -1,8 +1,9 @@
 \makeatletter
+\ifluatex \PassOptionsToPackage{nodefaultfont}{xlistings} \fi
 \RequirePackage[fakeminted,noloadlangs]{_config/xlistings}
 \xlstsetmintedstyle{plain number}
 
-\RequirePackage{mdsymbol}
+\ifluatex\else\RequirePackage{mdsymbol}\fi
 \def\LeftArrow{\text{\BeginAccSupp{method=escape,ActualText={<-}}\(\leftarrow\)\EndAccSupp{}}}
 \def\RightArrow{\text{\BeginAccSupp{method=escape,ActualText={->}}\(\rightarrow\)\EndAccSupp{}}}
 \def\DoubleLeftArrow{\text{\BeginAccSupp{method=escape,ActualText={<<-}}\(\twoheadleftarrow\)\EndAccSupp{}}}

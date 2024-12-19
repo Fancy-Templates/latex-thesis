@@ -124,6 +124,7 @@
 \fi
 \ifluatex
 \RequirePackage{polyglossia}
+\setmainlanguage{english}
 \else
 \RequirePackage{babel}
 \fi
@@ -151,7 +152,6 @@
 \thesis@internal@load{floats}
 \thesis@internal@load{titlepage}
 \thesis@internal@load{authenticity}
-% TODO: proper math before hyperref to guard for cleveref
 \RequirePackage{mathtools}
 \thesis@internal@load{hyperref}
 \thesis@internal@load{glossary}

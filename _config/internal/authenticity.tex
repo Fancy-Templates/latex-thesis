@@ -16,7 +16,7 @@
 		\begin{tikzpicture}
 			\draw[lcr,lw] (0,0) -- (\textwidth,0);
 			\node[name] at (0,0) {\strut\translate{location}, \translate{date}};
-			\node[content,sigshift, yshift=\lw/2+3.5pt] at (0,0) {\figureversion{lf}\large\itshape\@location\ifx\@location\@empty\else\DTMifsaveddate{submissiondate}{,}\fi \quad \DTMifsaveddate{submissiondate}{\DTMusedate{submissiondate}}{}};
+			\node[content,sigshift, yshift=\lw/2+3.5pt] at (0,0) {\LiningFigures\large\itshape\@location\ifx\@location\@empty\else\DTMifsaveddate{submissiondate}{,}{}\fi \quad \DTMifsaveddate{submissiondate}{\DTMusedate{submissiondate}}{}};
 		\end{tikzpicture}
 	\end{minipage}\hfill
 	\begin{minipage}[b]{.5\textwidth-5mm}
