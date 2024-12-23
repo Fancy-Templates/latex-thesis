@@ -53,6 +53,28 @@ A viable way to group different figures is the \textit{subfigures} command, a sh
 
 \section{Problem Statement}
 
+\begin{pseudo}[tbp]
+	\caption{Algo Good}
+	\label{fun:good-algo}
+	\begin{algorithm}[H]
+		\PreCode
+		\Input{x :: String}
+      \Output{y :: String}
+		\Output{z :: String}
+		
+		\StartCode
+		\lIf{x = "hello"}{
+         \Return{"world"}
+      }
+      \While{true}{
+         \If{y = "world"}{
+            \Return{"hello"}
+         }
+      }
+      \KwRet{"goodbye"}
+	\end{algorithm}
+\end{pseudo}
+
 \section{Contributions}
 
 \section{Overview}
