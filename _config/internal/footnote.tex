@@ -8,9 +8,7 @@
 
 \LetLtxMacro\thesis@oldfootnote\footnote
 
-% TODO: what if no chapters?
 \newcounter{thesis@side@footnote}[chapter]
-%
 
 \def\thesis@footnote@symbol{%
    \label{thesis@side@footnote@tar:\thesection:\arabic{thesis@side@footnote}}%
@@ -65,3 +63,10 @@
    \exhyphenpenalty1000\relax
    \thesis@disablehyper{#3}\strut
 }
+
+\PassOptionsToPackage{calc, en-US}{datetime2}
+\RequirePackage{datetime2}
+\def\FootUrlDateFormat#1{\space\strut\mbox{(\DTMdate{#1})}}
+\newcommand*\footrawurl[3][]{\footnote{#1#2\protect\FootUrlDateFormat{#3}}}
+\newcommand*\footurl[3][]{\footrawurl[#1]{\url{#2}}{#3}}
+\newcommand*\foothref[4][]{\footrawurl[#1]{\href{#2}{#3}}{#4}}

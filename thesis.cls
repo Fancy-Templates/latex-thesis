@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \def\thesis@classname{thesis}
-\ProvidesClass{\thesis@classname}[2023/05/31 Florian Sihler - Template for Theses]
+\ProvidesClass{\thesis@classname}[2024/12/24 Florian Sihler - Template for Theses]
 \def\thesis@warn{\ClassWarning{\thesis@classname}}
 \def\thesis@error{\ClassError{\thesis@classname}}
 
@@ -24,22 +24,16 @@
 \DeclareStringOption[a4]{paper}
 \DeclareBoolOption[true]{oneside}
 \DeclareComplementaryOption{twoside}{oneside}
+% also this option still exists, disabling the marginpar is no longer (fully) supported
 \DeclareBoolOption[true]{marginpar}
 \DeclareComplementaryOption{nomarginpar}{marginpar}
 \DeclareBoolOption[true]{citeInMarginpar}
 \DeclareBoolOption[false]{sftitle}
 \DeclareComplementaryOption{rmtitle}{sftitle}
 
-% TODO: allow true | oneside | twoside etc.
-%\DeclareStringOption[false]{print}[true]
-
 % links
 \DeclareBoolOption[true]{hyperref}
 \DeclareComplementaryOption{nohyperref}{hyperref}
-
-% glossary
-\DeclareBoolOption[true]{glossary}
-\DeclareComplementaryOption{noglossary}{glossary}
 
 % fonts
 \DeclareBoolOption[true]{beramono}
@@ -63,10 +57,10 @@
 
 \RequirePackage{etoolbox}
 
-\def\InputFrom#1{\thesis@info{Adding '#1' to the input path.}\appto\input@path{{#1/}}}
+\def\InputFrom#1{\thesis@info{Adding '#1' to the input path.}\appto\input@path{{#1/}}\appto\graphicspath{{#1/}}}
 
 % region setup the input path
-\expandafter\ifblank\expandafter{\thesis@configpath}{
+\expandafter\ifblank\expandafter{\thesis@configpath}{:
     \thesis@debug{No config path given, does not set up \string\input@path}%
 }{%
     \InputFrom{\thesis@configpath}%
@@ -85,14 +79,14 @@
         \thesis@error{Profile '\thesis@profile' does not have '#1' (searched at \thesis@profiles@path/#1.tex)}{Please make sure the configuration file is present.}%
     }%
 }
-\def\thesis@internal@load#1{%
+\def\thesis@internal@load#1{\makeatletter
     \InputIfFileExists{\thesis@internal@path/#1.tex}{%
          \thesis@log{Loaded internal::#1}%
     }{%
         \thesis@error{unable to find '#1' internally (searched at \thesis@internal@path/#1.tex)}{Please make sure the file is present.}%
     }%
 }
-\let\ThesisInternal\thesis@internal@load
+\let\ThesisModule\thesis@internal@load
 % endregion
 
 % region load class
@@ -143,7 +137,7 @@
 \thesis@internal@load{fonts}
 \thesis@internal@load{page}
 \thesis@internal@load{headfoot}
-\thesis@internal@load{penalty}
+\thesis@internal@load{layout}
 \thesis@internal@load{marginpar}
 \thesis@internal@load{tables}
 \thesis@internal@load{footnote}
@@ -151,16 +145,13 @@
 \thesis@internal@load{license}
 \thesis@internal@load{floats}
 \thesis@internal@load{titlepage}
-\thesis@internal@load{authenticity}
 \RequirePackage{mathtools}
 \thesis@internal@load{hyperref}
-\thesis@internal@load{glossary}
 \thesis@internal@load{biblatex}
 
-\thesis@internal@load{definitions}
+\thesis@internal@load{environments}
 \thesis@load@profile{defaults}
 
-% TODO allow to configure table usage etc. some more fancy stuff in extra packages
 % TODO: one format fmt for default configuration?
 % TODO: externalize support?
 

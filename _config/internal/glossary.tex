@@ -1,10 +1,3 @@
-\ifthesis@glossary\else
-   \thesis@info{Disable automatic glossary configuration (disabled)}
-   \endinput
-\fi
-
-\thesis@info{Apply glossary configuration}
-
 % TODO: clean up, heavily based on my bachelor thesis configuration
 
 \RequirePackage[
@@ -18,7 +11,6 @@
 
 % \noist % disable index style file
 \RequirePackage{glossary-longragged}
-% TODO, ensure? \RequirePackage{enumitem}
 
 \newif\ifdisableside
 
@@ -200,7 +192,6 @@
 
 \def\glsac#1{\glsentrylong{#1} (\gls{#1})}
 \def\glsplac#1{\glsentrylongpl{#1} (\glspl{#1})}
-\def\noside#1{\begingroup\disablesidetrue#1\endgroup}
 
 \renewcommand*\glsdohyperlink[2]{%
    \@glsshowtarget{#1}\thesis@disablehyper{\hyperlink{#1}{#2}}%

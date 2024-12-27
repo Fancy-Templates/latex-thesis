@@ -1,6 +1,8 @@
 \makeatletter
-\RequirePackage[vlined,algochapter,tworuled,linesnumbered]{algorithm2e}
-\RequirePackage{float,newfloat}
+\PassOptionsToPackage{vlined,algochapter,tworuled,linesnumbered}{algorithm2e}
+\RequirePackage{algorithm2e}
+\RequirePackage{float}
+\RequirePackage{newfloat}
 
 \DeclareFloatingEnvironment[
     fileext=lop,
@@ -8,7 +10,7 @@
     name=Algorithm,
     placement=tp,
 ]{pseudo}
-% \newcounter{pseudo@lb}
+
 \InitPageCounter{pseudo}
 \def\thesissetalg{\CountThisPage{pseudo}{c@pseudo@lb}}
 \def\thepseudo{\@formatcounter p{\c@pseudo@lb}}
@@ -52,3 +54,5 @@
 % \def\DataflowProcessorOut{\Output{environment~\(E\), graph~\(G\), in-, outgoing, and unknown references~\(I\),\,\(O\)\,\&\,\(U\)}}
 \SetArgSty{}
 \SetAlgoHangIndent{2.5em}
+
+\newcommand*{\AlgoLineRef}[2][line]{#1~\thesis@disablehyper{\ref{#2}}}

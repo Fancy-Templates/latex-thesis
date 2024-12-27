@@ -5,12 +5,14 @@
 
 \RequirePackage{ragged2e}
 
-% \itshape
 \def\thesis@marginpar@font{\scriptsize\color{black}}
+\def\setmarginfont#1{\def\thesis@marginpar@font{#1}}
+\def\marginfont{\thesis@marginpar@font}
 \ifthesis@draft
 \PassOptionsToPackage{fulladjust,parboxrestore}{marginnote}
 \RequirePackage{marginnote}
-\let\marginfont\thesis@marginpar@font
+% safety override
+\def\marginfont{\thesis@marginpar@font}
 \else
 \RequirePackage[draft=false,autoclearnotecolumns]{scrlayer-notecolumn}
 \setkomafont{notecolumn.marginpar}{\thesis@marginpar@font}
@@ -32,9 +34,9 @@
 \long\def\thesis@sn@gd@#1{\parbox\linewidth{\insidenotetrue\thesis@ragged\thesissidebarhook#1\vskip2.25pt}}
 \def\@sidenote{\@ifnextchar[{\s@sidenote}{\s@sidenote[\z@]}}
 \def\@@sidenote{\@ifnextchar[{\s@@sidenote}{\s@@sidenote[\z@]}}
+\def\noside#1{\begingroup\disablesidetrue#1\endgroup}
 
 % We want nested sidenotes to appear exactly where they should be and not in a second or third run. Currently i will not do this recursively but just for one level at a time.
-% TODO: configure fonts
 \ifthesis@draft
 \long\def\s@sidenote[#1]#2{\marginnote{\normalfont\scriptsize\itshape\thesis@sn@gd{#1}{#2}}}
 \long\def\s@@sidenote[#1]#2{\marginnote{\normalfont\scriptsize\itshape\thesis@sn@gd{#1}{#2}}}
@@ -42,14 +44,6 @@
 \long\def\s@sidenote[#1]#2{\ifx#1\z@ \makenote*{\thesis@sn@gd@{#2}}\else\makenote*{\thesis@sn@gd{#1}{#2}}\fi}
 \long\def\s@@sidenote[#1]#2{\ifx#1\z@ \makenote{\protect\thesis@sn@gd@{#2}}\else\makenote{\protect\thesis@sn@gd{#1}{#2}}\fi}
 \fi
-
-% % TODO: make configurable
-% \long\def\thesis@marginpar@content@#1{\raisebox{\dimexpr-4.75pt}{\parbox\linewidth{\scriptsize\itshape#1\vskip2.25pt}}}
-
-% \let\thesis@oldmarginpar\marginpar
-% \renewcommand{\marginpar}[2][]{%
-%    \thesis@oldmarginpar[\thesis@marginpar@content@{\RaggedLeft#1#2}]{\thesis@marginpar@content@{\RaggedRight#1#2}}%
-% }
 \else
 \thesis@info{Disable marginpar support, still supplying sidenote foots}
 \long\def\s@sidenote[#1]#2{\footnote{#2}}
