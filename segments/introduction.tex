@@ -4,6 +4,8 @@
 
 \section{Motivation}
 
+Sample cite~\cite{DBLP:conf/msr/SihlerPSTDD24}
+
 \begin{minted}{R}
 x <- list(i='hey', j='there')
 for(i in x) {
@@ -36,21 +38,37 @@ You can use \texttt{\textbackslash showsymbols} to propose a list of symbols to 
    \glssym{not:N} &\subset \glssym{not:Z} \subset \glssym{not:R} % \subset \glssym{not:C}
 \end{align}
 
-A viable way to group different figures is the \textit{subfigures} command, a short example can be seen at \cref{fig:first}.
-
+\clearpage
 \begin{figure}
-   \begin{subfigure}{0.33\linewidth}
+   \begin{subfigure}[c]{0.33\linewidth}
       \includegraphics[width=\linewidth]{img/example.pdf}
       \caption{First subfigure.}
       \label{fig:first}
   \end{subfigure}\hfill
-  \begin{subfigure}{0.33\linewidth}
+  \begin{subfigure}[c]{0.33\linewidth}
       \includegraphics[width=\linewidth]{img/example.pdf}
       \caption{Second subfigure.}
-      \label{fig:second}
    \end{subfigure}
-   \caption{Main caption.}
+   \caption[Main]{Main caption.}
+   \label{fig:main}
 \end{figure}
+
+A viable way to group different figures is the \textit{subfigures} command, a short example can be seen at \cref{fig:main}.
+This is \cref{fig:main} with the name \nameref{fig:main}.\footurl{www.google.com}{2024-12-24}
+See ulm university\foothref{https://web.archive.org/web/20241221140233/https://www.uni-ulm.de/}{https://www.uni-ulm.de/}{2024-12-21} for more information.
+
+\begin{table}
+   \caption{A simple table}
+   \begin{tabular}{cc}
+      \toprule
+      A & B \\
+      \midrule
+      1 & 2 \\
+      3 & 4 \\
+      \bottomrule
+   \end{tabular}
+   \label{tab:simple}
+\end{table}
 
 \section{Problem Statement}
 
@@ -64,17 +82,19 @@ A viable way to group different figures is the \textit{subfigures} command, a sh
 		\Output{z :: String}
 		
 		\StartCode
-		\lIf{x = "hello"}{
-         \Return{"world"}
+		\lIf{x \KwIs "hello"}{
+         \label{alg:important-line}\Return{"world"}
       }
       \While{true}{
-         \If{y = "world"}{
+         \If{y \KwIs "world"}{
             \Return{"hello"}
          }
       }
-      \KwRet{"goodbye"}
+      \Return{"goodbye"}
 	\end{algorithm}
 \end{pseudo}
+
+In the \nameref{fun:good-algo} algorithm \cref{fun:good-algo}, an important line is \AlgoLineRef{alg:important-line}.
 
 \section{Contributions}
 

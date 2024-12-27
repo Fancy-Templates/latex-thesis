@@ -44,7 +44,7 @@
    \sidenote[\z@]{\protect\thesis@sidecite@do{\etry}}%
 }
 \newif\if@sidecite@doreset@
-\def\forcecite#1{{\@sidecite@doreset@true\cite{#1}}}
+\def\forcecite#1{{\@sidecite@doreset@true\sidecite{#1}\plaincite{#1}}}
 \def\sidecite#1{%
    \@for\etry:={#1}\do{%
       \if@sidecite@doreset@

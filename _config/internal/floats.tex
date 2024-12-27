@@ -29,7 +29,7 @@
 \def\InitPageCounter#1{\newcounter{c@@#1@@lb}\csdef{c@#1@lb}{0}}
 
 % we no longer do that but instead use a macro for each page
-\InitPageCounter{figure}\InitPageCounter{table}
+\InitPageCounter{figure}\InitPageCounter{subfigure}\InitPageCounter{table}
 % #1 type like figure | table | ..., #2 counter
 \def\CountThisPageWrite#1#2{%
 \expandafter\providecommand\csname c@#1@#2\endcsname{0}% a default value
@@ -56,11 +56,13 @@
 \robustify\CountThisPage
 \def\thesissetfig{\CountThisPage{figure}{c@figure@lb}}
 \def\thesissettbl{\CountThisPage{table}{c@table@lb}}
+\def\thesissetsubfig{\CountThisPage{subfigure}{c@subfigure@lb}}
 % we must hook to scr@caption, as with @caption the labels have been already issued (meaning \thetable etc. would refer to the last one - but only in references)
 \def\HookCount#1#2{\pretocmd\scr@caption{#2}\relax\relax}%
 % hook against captions from newfloat environments
 \def\HookCustomEnvCount#1#2{\pretocmd\caption@iftype{#2}\relax\relax}
 \AtBeginEnvironment{figure}   {\HookCount{lof}{\thesissetfig}}
+\AtBeginEnvironment{subfigure}{\HookCount{lof}{\thissetsubfig}}
 \AtBeginEnvironment{table}    {\HookCount{lot}{\thesissettbl}}
 \AtBeginEnvironment{longtable}{\HookCount{lot}{\thesissettbl}}
 \AtBeginEnvironment{tabularx} {\HookCount{lot}{\thesissettbl}}
@@ -75,7 +77,7 @@
 
 \def\creflbl#1{\cref@old@label{#1}\@bsphack\edef\@tempa{{page}{\the\c@page}}\setcounter{page}{1}\edef\@tempb{\thepage}\expandafter\setcounter\@tempa\cref@constructprefix{page}{\cref@result}\protected@write\@auxout{}{\string\newlabel{#1@cref}{{\cref@currentlabel}{[\@tempb][\arabic{page}][\cref@result]\thepage}}}\@esphack}
 
-\usepackage{alphalph}
+\RequirePackage{alphalph}
 % i do not like italic small caps, furthermore, most fonts do not support them
 \def\@@formatcounter#1#2{%
   \smash{\textit{\LiningFigures% use lining figures for references
@@ -94,16 +96,15 @@
 \def\thefigure{\@formatcounter f{\c@figure@lb}}
 \def\thetable{\@formatcounter t{\c@table@lb}}
 % \DeclareCaptionSubType*{figure}
-% TODO: ref subfigure more conventional?
 % \renewcommand\thesubfigure{\@formatcounter f{\c@figure@lb}\alph{subfigure}}
-
-% \def\thesubfigure{\@formatcounter s{\c@figure@lb/\alph{subfigure}}}
+% \def\thesubfigure{\@formatcounter s{\alph{subfigure}}}
 % \def\theexa{\@formatcounter e{\c@exa@lb}}
 % \def\thents{\@formatcounter n{\c@nts@lb}}
 
 \def\makelongrefs{%
 \def\thefigure{Figure~\@formatcounter f{\c@figure@lb}}%
 \def\thetable{Table~\@formatcounter t{\c@table@lb}}%
+% \def\thesubfigure{Subfigure~\@formatcounter f{\c@figure@lb/\alph{subfigure}}}%
 % \def\theexa{Example~\@formatcounter e{\c@exa@lb}}%
 % \def\thents{Note~\@formatcounter n{\c@nts@lb}}%
 }

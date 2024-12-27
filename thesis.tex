@@ -2,8 +2,9 @@
 	verbose,
 	english,
 	type=bachelor-thesis, % master-thesis
-	%german,   % titles for a thesis in German, A4 paper
-	paper=a4,  % forces A4 format even if <german> is not selected (useful for printing)
+	license=CCBY, % CCBY, CCBYSA, CCBYNC, CCBYNCSA; open an issue if you need another license
+	%sftitle,  % sans-serif titles
+	paper=a4,  % forces A4 format
 	%oneside,   % onesided layout
 	%draft,    % omit title page, listings, and particular chapters selected below using include only
 	%print,    % the printed version does not use colored links
@@ -12,26 +13,44 @@
 
 \addbibresource{literature/literature.bib}
 
+% for the final page! (see below with `\makedeclarationofauthenticity)
+\ThesisModule{authenticity}
+% specify \signature{path/to/signature.png} to include a signature
+% you can also shift the signature with \signature[xshift=0pt,yshift=0pt]{path/to/signature.png}
+% if you want to set the location of the signature, use
+\signaturelocation{Ulm}
+% if you want to set the submission date of the declaration, use
+\signaturedate{2025-12-30}
+\makedeclarationofauthenticity % for a predefined declaration of authenticity
+% \begin{declarationofauthenticity} % when you want to write your own text
+% 	No, I definitely did not copy all my code from StackOverflow. I swear!
+% \end{declarationofauthenticity}
+	
 % provide addon listings support:
-\ThesisInternal{listings}
+\ThesisModule{listings}
 \LoadLanguage{R}
 
-\ThesisInternal{pseudocode}
+\ThesisModule{units}
 
+\ThesisModule{pseudocode}
 % do you have a glossary?
+\ThesisModule{glossary}
 \loadglsentries{segments/glossary.tex}
 % do you want colored glossary symbols in the document?
 \def\glssym#1{{\color{purple!80!blue}\gls{#1}}}
 
+% == Important Metadata
 \title{My Great Thesis with a Reaaaaally Reaaaaally Reaaaaally Long Title}
 \author{Your Amazing Name}
+% \studentnumber{} your matriculation number if you have to
 
-\titleimage[width=.15\linewidth]{img/title-banner-image}
+\titleimage[width=.2\linewidth]{img/title-banner-image}
 \date{\today}
 
 \advisor{Prof. Dr. Matthias Tichy}{Institute of Software Engineering and Programming Languages}
 % \advisor{Your Second Examiner}{Their Institute}
 \supervisor{Florian Sihler}{Institute of Software Engineering and Programming Languages}
+% == End of Important Metadata
 
 \begin{document}
 \hideindraft{
@@ -53,10 +72,6 @@
 	\input{segments/implementation}
 	\input{segments/evaluation}
 	\input{segments/conclusion}
-	
-	hello world\footnote{\the\marginparwidth Hello dello wello rello schello duello quell o} %\the\marginparwidth\marginpar{Hello dello wello rello schello duello quell o}
-
-	\cite{DBLP:conf/msr/SihlerPSTDD24}
 
 	\backmatter
 	\printbibliography
@@ -65,15 +80,4 @@
 	\let\cleardoublepage\newpage
 	\chapter{Glossary and Acronyms}
 	\printglossaries
-
-	% specify \signature{path/to/signature.png} to include a signature
-	% you can also shift the signature with \signature[xshift=0pt,yshift=0pt]{path/to/signature.png}
-	% if you want to set the location of the signature, use
-	\signaturelocation{Ulm}
-	% if you want to set the submission date of the declaration, use
-	\signaturedate{2025-12-30}
-	\makedeclarationofauthenticity % for a predefined declaration of authenticity
-	% \begin{declarationofauthenticity} % when you want to write your own text
-	% 	No, I definitely did not copy all my code from StackOverflow. I swear!
-	% \end{declarationofauthenticity}
 \end{document}

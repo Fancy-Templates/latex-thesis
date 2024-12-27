@@ -1,8 +1,5 @@
 \ifthesis@marginpar
-% TODO: style for non-marginpar?
-% TODO: Short toc
 
-% \marginpar{}
 \newsavebox\thesis@chapternum
 \ifthesis@sftitle
 \def\thesis@chapternumber@format#1{\centering{\color{@chapternumber}\itshape\firabook\fontsize{72pt}{72pt}\selectfont#1\autodot}}
@@ -97,7 +94,7 @@
    \thesis@chaptertoc@style
    \thesis@chaptertoc@install
 }
-\usepackage{xpatch}
+\RequirePackage{xpatch}
 \xapptocmd\addtocentrydefault{%
 \ifusechaptertoc%
     \Ifstr{#1}{section}% only do for sections
@@ -106,10 +103,20 @@
 }{}{}
 \xpretocmd\chapter{\usechaptertocfalse}{}{}%
 
-% TODO: optimize  minitoc and make for all, maybe something like
-% a b c d e f g?
+% TODO: optimize the minitoc and make for all, maybe something like
 \newcommand\setchaptertoc[1][]{%
   \Ifstr{#1}{}
     {\AddtoOneTimeDoHook{heading/preinit/chapter}{\chaptertoc}}
     {\AddtoOneTimeDoHook{heading/preinit/chapter}{\chaptertoc[#1]}}%
 }
+
+\def\csumnext{\\[.4ex]}
+\def\csummary#1{\addtocontents{toc}{\protect\sidenote{\itshape\chapapp~\thechapter:\\[.5ex]#1}}}
+\newenvironment{summary}{\vspace*{-.65\medskipamount}\begingroup
+\LetLtxMacro\Cref\basicCref % just avoid side markers in the summary
+\LetLtxMacro\cref\basiccref
+\hypersetup{allcolors=.,citecolor=@cite}\thesisglsinsidefalse
+}%
+{\thesis@voidpar\endgroup\smallskip\thesis@voidpar}
+
+\setcounter{tocdepth}{\sectiontocdepth}

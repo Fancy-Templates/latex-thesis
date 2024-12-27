@@ -2,6 +2,11 @@
 build/
 thesis.pdf
 *-SAVE-ERROR
+**/*[sS]ignature.[pP][nN][gG]
+**/*[sS]ignature.[jJ][pP][gG]
+**/*[sS]ignature.[jJ][pP][eE][gG]
+**/*[sS]ignature.[pP][dD][fF]
+**/*[sS]ignature.[sS][vV][gG]
 
 # LaTeX gitignore
 
