@@ -434,6 +434,8 @@ If you load the listings module you gain all features provided by the [xlistings
 
 - The `add to literate` key allows you to add new literates (i.e., replacements) for your listings.
 
+The [xlistings][] package is part of this template under [./_config/xlistings.sty](./_config/xlistings.sty), if you want to update it for your template instance, you may want to use the [./_config/update_xlistings.sh](./_config/update_xlistings.sh) shellscript.
+
 #### Margin Paragraphs
 
 The margin paragraphs module has the base control of over the sidebar, using a combination of the [mparhack][] (fixes for marginpar), [ifoddpage][] (to detect page counts), and [ragged2e][] package (for improved ragged writing), as well as either the cheaper [marginnote][] package (if in `draft` mode) or the [scrlayer-notecolumn][] package (supports column breaks). Although we load this plethora of packages, there are just a couple of commands that you should know about:
