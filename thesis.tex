@@ -61,8 +61,14 @@
 		\input{segments/acknowledgements}
 	
 		\tableofcontents
-		\listoffigures
-		\listoftables
+		{
+			% if you do not want new pages:
+			% \clearpage
+			% \let\LaTeXStandardClearpage\clearpage
+			% \let\clearpage\relax
+			\listoffigures
+			\listoftables
+		}
 	}
 	
 	\mainmatter
