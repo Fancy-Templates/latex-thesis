@@ -70,14 +70,14 @@
 \translate{date-of-submission}:&\@date\\
 \translate{institution}:&\@university
 \end{tabular}\vskip1.25cm\par
-{\bfseries\ifnum\value{thesis@advisors}=1
+{\bfseries\ifnum\value{thesis@examiners}=1
    \translate{advisor-singular}%
-\else\ifnum\value{thesis@advisors}>1
+\else\ifnum\value{thesis@examiners}>1
    \translate{advisor-plural}%
 \fi\fi\smallskip}
-\ifnum\value{thesis@advisors}>0
+\ifnum\value{thesis@examiners}>0
 \begin{itemize}[leftmargin=*,nosep,itemsep=\smallskipamount]
-   \@advisors
+   \@examiners
 \end{itemize}
 \fi
 \vskip.5cm

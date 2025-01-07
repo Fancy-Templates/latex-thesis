@@ -68,7 +68,7 @@ Afterward, go to the "important metadata" section (which should start with the l
 - name (`\author`),
 - title image (`\titleimage`),
 - supervisor(s) (`\supervisor`), and
-- advisor(s) or examiner(s) (`\advisor`)
+- examiner(s) (`\examiner`)
 
 Great, you should be now up and ready to write your thesis!
 Look at the [most important commands](#most-important-commands) or the example segments (e.g., the [introduction](segments/introduction.tex)) to get started.
@@ -490,7 +490,7 @@ We do not do a lot of magic with tables, besides what we configure in the [float
 
 #### Titlepage
 
-The titlepage module defines the commands you can use to [configure metadata](#configuring-metadata) (`\advisor`, `\titleimage`, ...) and loads some packages useful when creating the titlepage ([graphicx][], [ragged2e][], [enumitem][], and [tabularx][]).
+The titlepage module defines the commands you can use to [configure metadata](#configuring-metadata) (`\examiner`, `\titleimage`, ...) and loads some packages useful when creating the titlepage ([graphicx][], [ragged2e][], [enumitem][], and [tabularx][]).
 Yet, behavior wise there is not a lot of magic going on here.
 We overwrite the `\maketitle` command (and extend it with an optional argument you can use to specify the page number your titlepage should have: `\maketitle[2]` starts with page 2).
 Besides this we provide the `full-titlepage` environment which may then be used by the profiles (see the [Adapting for Other Universities or Institutes](#adapting-for-other-universities-or-institutes) section and the [`profile` option](#the-common-module)).
