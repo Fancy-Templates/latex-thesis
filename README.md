@@ -5,7 +5,7 @@ This readme serves several purposes:
 1. [Setting Up](#setting-up):\
    Explain how you can set up your own thesis repository based on this template
 2. [Quickstart](#quickstart):\
-   Give a quickstart explanation on how to get started writing your thesis
+   Give a quickstart explanation on how to get started writing your thesis (including [best practices](#best-practices))
 3. [Full Reference](#full-reference):\
    Provide a more thorough reference of the commands and environments provided by the template
 
@@ -48,6 +48,12 @@ The template has the following structure, only the `thesis.cls` and the `_config
 ```
 
 Please note that the segments are just a generic suggestion, it is probably best to discuss the best structure with your respective supervisor.
+
+### Best Practices
+
+It is up to you and your supervisor whether you want to use the structure provided in this template (especially with regard to the files in the [segments](segments/) folder).
+In general, we block the `thesis.pdf` and a `signature` image (see the [declaration of authenticity](#declaration-of-authenticity) module) from being committed to the repository ([.gitignore](.gitignore)) and even if you rename that main file you should refrain from pushing compiled (blobs/) files to the repository to avoid cluttering it.
+**However**, to persist your final state in an easily accessible way, we encourage you to upload the compiled version of your final and submitted thesis to this repository as well (either by removing the `thesis.pdf` blocker from the [.gitignore](.gitignore) file or by force-adding it to the repository with `git add -f thesis.pdf` and then committing and pushing it the usual way).
 
 ### Configuring Metadata
 
