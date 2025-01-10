@@ -5,7 +5,7 @@ This readme serves several purposes:
 1. [Setting Up](#setting-up):\
    Explain how you can set up your own thesis repository based on this template
 2. [Quickstart](#quickstart):\
-   Give a quickstart explanation on how to get started writing your thesis
+   Give a quickstart explanation on how to get started writing your thesis (including [best practices](#best-practices))
 3. [Full Reference](#full-reference):\
    Provide a more thorough reference of the commands and environments provided by the template
 
@@ -48,6 +48,13 @@ The template has the following structure, only the `thesis.cls` and the `_config
 ```
 
 Please note that the segments are just a generic suggestion, it is probably best to discuss the best structure with your respective supervisor.
+
+### Best Practices
+
+It is up to you and your supervisor whether you want to use the structure provided in this template (especially with regard to the files in the [segments](segments/) folder).
+In general, we block the `thesis.pdf` and a `signature` image (see the [declaration of authenticity](#declaration-of-authenticity) module) from being committed to the repository ([.gitignore](.gitignore)) and even if you rename that main file you should refrain from pushing compiled (blobs/) files to the repository to avoid cluttering it.
+**However**, to persist your final state in an easily accessible way, we encourage you to upload the compiled version of your final and submitted thesis to this repository as well.
+Please use  the format `<Surname><Firstname>-<Type>.pdf` for the file name, where `<Type>` is either `BachelorThesis` or `MasterThesis` (e.g., `SihlerFlorian-MasterThesis.pdf`).
 
 ### Configuring Metadata
 
@@ -207,6 +214,8 @@ Besides this, the common module provides some useful commands:
 
 #### Declaration of Authenticity
 
+_Include the [authenticity module](_config/internal/authenticity.tex) with `\ThesisModule{authenticity}`._
+
 We usually require a declaration of originality/authenticity for the work conducted in the thesis. This module provides a page for you to sign that you created the presented work within this thesis of your own work.
 The main macro `\makedeclarationofauthenticity` automatically inserts this page at the end of document, ready for you to be signed.
 To digitally typeset the date and location, you can set them like this:
@@ -364,6 +373,8 @@ This will show only `https://www.uni-ulm.de/` in the sidebar but link to the web
 
 #### Glossary
 
+_Include the [glossary module](_config/internal/glossary.tex) with `\ThesisModule{glossary}`._
+
 Combining the [glossaries-accsupp](https://ctan.org/pkg/glossaries-accsupp) and the [glossary-longragged](https://ctan.org/pkg/glossaries) package, this module provides (margin paragraph aware) support for glossaries. You can use all glossary commands as usual.
 
 The default setup provides you with normal glossaries, acronyms, and symbols ("notation"),
@@ -411,6 +422,8 @@ Then, the macro has to do two things: provide a translation for the `license` te
 
 #### Listings
 
+_Include the [listings module](_config/internal/listings.tex) with `\ThesisModule{listings}`._
+
 If you load the listings module you gain all features provided by the [xlistings][] package, which in turn relies on the [listings][] package to provide you with a set of helpful commands to typeset code snippets. If you know [listings][] you are theoretically already set to go, however, there are some macros you should know about (besides advantages like automated highlighting of numbers and unselectable line numbers thanks to the [accsupp][] package):
 
 - Load a language of your choice using `\LoadLanguages{<language>}` (e.g., `\LoadLanguages{R,java}`).
@@ -457,6 +470,8 @@ There are no new interesting commands that you should know about(/use) and if th
 
 #### Pseudocode
 
+_Include the [pseudocode module](_config/internal/pseudocode.tex) with `\ThesisModule{pseudocode}`._
+
 This module relies on [algorithm2e][] to provide you with the capability to typeset pseudocode. As a side effect of registering a new `pseudo` float that you can use to that matter, it loads [float][] and [newfloat][] as well.
 Doing that yuo can typeset an algorithm like the following, in the document, you can reference inidivudal lines using `\AlgoLineRef{<label>}`:
 
@@ -502,6 +517,8 @@ If you want to know the details, see the [uulm-sp/titlepage.tex](_config/profile
 This module uses the [translator][] package to provide many translations for various strings throughout the document, automatically set to the language of your document. You can use the `\translate` command to access these translations, however, you probably do not have to.
 
 #### Units
+
+_Include the [units module](_config/internal/units.tex) with `\ThesisModule{units}`._
 
 This module loads and configures [siunitx][] to provide you with a set of commands to typeset units and numbers (please read the [siunitx][] documentation for more information). In short, you can use `\qty{<number>}{<unit>}` to typeset a quantity, `\num{<number>}` to typeset a number, and `\unit{<unit>}` to typeset a unit. For example: `\qty{3.14}{\meter\per\second}`.
 
