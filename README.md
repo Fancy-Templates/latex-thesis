@@ -199,13 +199,13 @@ Of course, not all options are equally important. Those of importance are at the
 | `fontsize`        | 10pt          | The font size of the document (only change when agreed with your supervisor).                                                                  |
 | `hyperref`        | true          | If set to false, the document will be compiled without hyper references (complements `nohyperref`, see [hyper references](#hyper-references)). |
 | `nohyperref`      | false         | If set to true, the document will be compiled without hyper references (complements `hyperref`, see [hyper references](#hyper-references)).    |
-| `oneside`         | false         | If set to true, the document will be compiled in oneside mode (complements `twoside`).                                                         |
+| `oneside`         | true         | If set to true, the document will be compiled in oneside mode (complements `twoside`).                                                         |
 | `palatino`        | true          | If set to false, the document will be compiled without the palatino font (see [fonts](#fonts)).                                                |
 | `paper`           | a4            | The paper size of the document (only change when agreed with your supervisor).                                                                 |
 | `print`           | false         | If set to true, the document will be compiled in print mode (complements the digital option).                                                  |
 | `rmtitle`         | true          | If set to false, the document will be compiled with a sans-serif title (see [fonts](#fonts), complements `sftitle`).                           |
 | `sftitle`         | false         | If set to true, the document will be compiled with a sans-serif title (see [fonts](#fonts), complements `rmtitle`).                            |
-| `twoside`         | true          | If set to false, the document will be compiled in oneside mode (complements `oneside`).                                                        |
+| `twoside`         | false          | If set to false, the document will be compiled in oneside mode (complements `oneside`).                                                        |
 
 </details>
 
