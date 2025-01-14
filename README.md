@@ -56,6 +56,8 @@ In general, we block the `thesis.pdf` and a `signature` image (see the [declarat
 **However**, to persist your final state in an easily accessible way, we encourage you to upload the compiled version of your final and submitted thesis to this repository as well.
 Please use  the format `<Surname><Firstname>-<Type>.pdf` for the file name, where `<Type>` is either `BachelorThesis` or `MasterThesis` (e.g., `SihlerFlorian-MasterThesis.pdf`).
 
+For more information on the actual submission, please consult your supervisor ([FAQ Page of Ulm University](https://www.uni-ulm.de/studium/pruefungsverwaltung/pruefungen-und-module-faq/)).
+
 ### Configuring Metadata
 
 Everything of importance regarding metadata resides within the [thesis.tex](thesis.tex) file.
