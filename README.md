@@ -9,6 +9,8 @@ This readme serves several purposes:
 3. [Full Reference](#full-reference):\
    Provide a more thorough reference of the commands and environments provided by the template
 
+See the [ai-rules.md](./ai-rules.md) for the rules regarding the use of AI in theses.
+
 > Originally, I ([Florian][homepage]) created the basis of this template for my [bachelor's thesis][doi-ba] and minified it on request for my [master's thesis][doi-ma]. Even though I invested a lot of effort since then to make it standalone (and much, much, much easier to use), there are still some parts that are not as polished as they should be (and many modules not ported).
 >
 > If you encounter any problem, please write me an [email](mailto:florian.sihler@uni-ulm.de) or open an issue!
