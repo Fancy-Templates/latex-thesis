@@ -150,30 +150,30 @@ So if you want to make your own definitions, it is probably best to clone-and-ow
 Most modules are more and less modular so while they may rely on the built-in set, most of them should be adaptable outside of the thesis context. In the following list you can see which modules are included by default (✓) and what they provide.
 You can load the other modules by using, for example, `\ThesisModule{authenticity}` command in the preamble of your document (the sample structure should load some of those for you). If you have something that you want to contribute, feel free to open a pull request!
 
-|       | Module                                                      | Description                                                                                                 | (Internal) Source                                     |
-| :---: | :---------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------- | :---------------------------------------------------- |
-|   ✓   | [\<Common>](#the-common-module)                             | Common commands for the thesis                                                                              | [thesis.cls](thesis.cls)                              |
-|       | [Declaration of Authenticity](#declaration-of-authenticity) | Provide a page to sign that you created this thesis of your own work                                        | [authenticity.tex](_config/internal/authenticity.tex) |
-|   ✓   | [Bibliography Support](#bibliography-support)               | Provide support for a bibliography                                                                          | [biblatex.tex](_config/internal/biblatex.tex)         |
-|   ✓   | [Chapters and Minitocs](#chapters-and-minitocs)             | Styles the chapters, their summaries, and tocs                                                              | [chapter.tex](_config/internal/chapter.tex)           |
-|   ✓   | [Colors](#colors)                                           | Provide a set of colors for the thesis                                                                      | [colors.tex](_config/internal/colors.tex)             |
-|   ✓   | [Useful Environments](#useful-environments)                 | Provide a set of hopefully useful environments (abstract, acknowledgements, ...)                            | [environments.tex](_config/internal/environments.tex) |
-|   ✓   | [Floats](#floats)                                           | Configure the styling of floating elements (figures, ...) including their counter                           | [floats.tex](_config/internal/floats.tex)             |
-|   ✓   | [Fonts](#fonts)                                             | Configure the fonts used in the thesis                                                                      | [fonts.tex](_config/internal/fonts.tex)               |
-|   ✓   | [Footnote](#footnote)                                       | Footnotes that appear in the sidebar                                                                        | [footnote.tex](_config/internal/footnote.tex)         |
-|       | [Glossary](#glossary)                                       | Provide support for a glossary                                                                              | [glossary.tex](_config/internal/glossary.tex)         |
-|   ✓   | [Headers and Footers](#headers-and-footers)                 | Configure the headers and footers                                                                           | [headfoot.tex](_config/internal/headfoot.tex)         |
-|   ✓   | [Hyper References](#hyper-references)                       | Configure the hyper references                                                                              | [hyperref.tex](_config/internal/hyperref.tex)         |
-|   ✓   | [General Layout](#general-layout)                           | Configure the general layout (including widow handling)                                                     | [layout.tex](_config/internal/layout.tex)             |
-|   ✓   | [Licensing](#licensing)                                     | Provide license information                                                                                 | [license.tex](_config/internal/license.tex)           |
-|       | [Listings](#listings)                                       | Provide support for code snippets (using the [xlistings][] backend) | [listings.tex](_config/internal/listings.tex)         |
-|   ✓   | [Margin Paragraphs](#margin-paragraphs)                     | Configure the content of the margin                                                                         | [marginpar.tex](_config/internal/marginpar.tex)       |
-|   ✓   | [Page Layout](#page-layout)                                 | Configure the page layout                                                                                   | [page.tex](_config/internal/page.tex)                 |
-|       | [Pseudocode](#pseudocode)                                   | Provide support for pseudocode                                                                              | [pseudocode.tex](_config/internal/pseudocode.tex)     |
-|   ✓   | [Tables](#tables)                                           | Configure the styling of tables                                                                             | [tables.tex](_config/internal/tables.tex)             |
-|   ✓   | [Titlepage](#titlepage)                                   | Styling for the titlepage                                                                                   | [titlepage.tex](_config/internal/titlepage.tex)       |
-|   ✓   | [Translations](#translations)                               | Provide translation support for the template/document                                                       | [translations.tex](_config/internal/translations.tex) |
-|       | [Units](#units)                                             | Provide support for (si-)units                                                                              | [units.tex](_config/internal/units.tex)               |
+|     | Module                                                      | Description                                                                       | (Internal) Source                                     |
+|:---:|:----------------------------------------------------------- |:--------------------------------------------------------------------------------- |:----------------------------------------------------- |
+|  ✓  | [\<Common>](#the-common-module)                             | Common commands for the thesis                                                    | [thesis.cls](thesis.cls)                              |
+|     | [Declaration of Authenticity](#declaration-of-authenticity) | Provide a page to sign that you created this thesis of your own work              | [authenticity.tex](_config/internal/authenticity.tex) |
+|  ✓  | [Bibliography Support](#bibliography-support)               | Provide support for a bibliography                                                | [biblatex.tex](_config/internal/biblatex.tex)         |
+|  ✓  | [Chapters and Minitocs](#chapters-and-minitocs)             | Styles the chapters, their summaries, and tocs                                    | [chapter.tex](_config/internal/chapter.tex)           |
+|  ✓  | [Colors](#colors)                                           | Provide a set of colors for the thesis                                            | [colors.tex](_config/internal/colors.tex)             |
+|  ✓  | [Useful Environments](#useful-environments)                 | Provide a set of hopefully useful environments (abstract, acknowledgements, ...)  | [environments.tex](_config/internal/environments.tex) |
+|  ✓  | [Floats](#floats)                                           | Configure the styling of floating elements (figures, ...) including their counter | [floats.tex](_config/internal/floats.tex)             |
+|  ✓  | [Fonts](#fonts)                                             | Configure the fonts used in the thesis                                            | [fonts.tex](_config/internal/fonts.tex)               |
+|  ✓  | [Footnote](#footnote)                                       | Footnotes that appear in the sidebar                                              | [footnote.tex](_config/internal/footnote.tex)         |
+|     | [Glossary](#glossary)                                       | Provide support for a glossary                                                    | [glossary.tex](_config/internal/glossary.tex)         |
+|  ✓  | [Headers and Footers](#headers-and-footers)                 | Configure the headers and footers                                                 | [headfoot.tex](_config/internal/headfoot.tex)         |
+|  ✓  | [Hyper References](#hyper-references)                       | Configure the hyper references                                                    | [hyperref.tex](_config/internal/hyperref.tex)         |
+|  ✓  | [General Layout](#general-layout)                           | Configure the general layout (including widow handling)                           | [layout.tex](_config/internal/layout.tex)             |
+|  ✓  | [Licensing](#licensing)                                     | Provide license information                                                       | [license.tex](_config/internal/license.tex)           |
+|     | [Listings](#listings)                                       | Provide support for code snippets (using the [xlistings][] backend)               | [listings.tex](_config/internal/listings.tex)         |
+|  ✓  | [Margin Paragraphs](#margin-paragraphs)                     | Configure the content of the margin                                               | [marginpar.tex](_config/internal/marginpar.tex)       |
+|  ✓  | [Page Layout](#page-layout)                                 | Configure the page layout                                                         | [page.tex](_config/internal/page.tex)                 |
+|     | [Pseudocode](#pseudocode)                                   | Provide support for pseudocode                                                    | [pseudocode.tex](_config/internal/pseudocode.tex)     |
+|  ✓  | [Tables](#tables)                                           | Configure the styling of tables                                                   | [tables.tex](_config/internal/tables.tex)             |
+|  ✓  | [Titlepage](#titlepage)                                     | Styling for the titlepage                                                         | [titlepage.tex](_config/internal/titlepage.tex)       |
+|  ✓  | [Translations](#translations)                               | Provide translation support for the template/document                             | [translations.tex](_config/internal/translations.tex) |
+|     | [Units](#units)                                             | Provide support for (si-)units                                                    | [units.tex](_config/internal/units.tex)               |
 
 #### The Common Module
 
@@ -186,7 +186,7 @@ As we are based on the [Koma-Script][koma] class [scrbook][koma], you can use al
 Of course, not all options are equally important. Those of importance are at the top of the list:
 
 | Option            | Default       | Description                                                                                                                                    |
-| :---------------- | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+|:----------------- |:------------- |:---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `citeInMarginpar` | true          | If set to false, citations will not appear in the marginpar (see [bibliography support](#bibliography-support)).                               |
 | `draft`           | false         | If set to true, the document will be compiled in draft mode (showing overfull boxes, ...).                                                     |
 | `license`         | CCBY          | The license to use for the document (see [licensing](#licensing)).                                                                             |
@@ -201,13 +201,13 @@ Of course, not all options are equally important. Those of importance are at the
 | `fontsize`        | 10pt          | The font size of the document (only change when agreed with your supervisor).                                                                  |
 | `hyperref`        | true          | If set to false, the document will be compiled without hyper references (complements `nohyperref`, see [hyper references](#hyper-references)). |
 | `nohyperref`      | false         | If set to true, the document will be compiled without hyper references (complements `hyperref`, see [hyper references](#hyper-references)).    |
-| `oneside`         | true         | If set to true, the document will be compiled in oneside mode (complements `twoside`).                                                         |
+| `oneside`         | true          | If set to true, the document will be compiled in oneside mode (complements `twoside`).                                                         |
 | `palatino`        | true          | If set to false, the document will be compiled without the palatino font (see [fonts](#fonts)).                                                |
 | `paper`           | a4            | The paper size of the document (only change when agreed with your supervisor).                                                                 |
 | `print`           | false         | If set to true, the document will be compiled in print mode (complements the digital option).                                                  |
 | `rmtitle`         | true          | If set to false, the document will be compiled with a sans-serif title (see [fonts](#fonts), complements `sftitle`).                           |
 | `sftitle`         | false         | If set to true, the document will be compiled with a sans-serif title (see [fonts](#fonts), complements `rmtitle`).                            |
-| `twoside`         | false          | If set to false, the document will be compiled in oneside mode (complements `oneside`).                                                        |
+| `twoside`         | false         | If set to false, the document will be compiled in oneside mode (complements `oneside`).                                                        |
 
 </details>
 
