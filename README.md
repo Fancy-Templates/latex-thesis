@@ -18,7 +18,7 @@ See the [ai-rules.md](./ai-rules.md) for the rules regarding the use of AI in th
 
 ## Setting Up
 
-The main idea of using this thesis is in a clone-and-own fashion. So you may either 
+The main idea of using this thesis is in a clone-and-own fashion. So you may either
 
 - [fork](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html) this repository (or have it forked by your supervisor), or
 - [create a new repository](https://docs.github.com/en/github/getting-started-with-github/create-a-repo) initialized with this template.
@@ -41,7 +41,7 @@ The template has the following structure, only the `thesis.cls` and the `_config
 | - thesis.cls      # The document class for the thesis
 | - segments/       # A place for the segments of your thesis
 | - README.md       # This file
-| - literature/     # A place for your bib file(s) 
+| - literature/     # A place for your bib file(s)
 | - img/            # A place for your images
 | - .latexmkrc      # The configuration for latexmk
 | - .gitlab-ci.yml  # The CI/CD pipeline
@@ -75,7 +75,7 @@ Right at the start, when loading the document class, you can set the `type` of t
 
 Afterward, go to the "important metadata" section (which should start with the line `% == Important Metadata`) to set your
 
-- title (`\title`, preferably in [title case](https://capitalizemytitle.com/)), 
+- title (`\title`, preferably in [title case](https://capitalizemytitle.com/)),
 - name (`\author`),
 - title image (`\titleimage`),
 - supervisor(s) (`\supervisor`), and
@@ -83,6 +83,8 @@ Afterward, go to the "important metadata" section (which should start with the l
 
 Great, you should be now up and ready to write your thesis!
 Look at the [most important commands](#most-important-commands) or the example segments (e.g., the [introduction](segments/introduction.tex)) to get started.
+
+In case you want a multi-line title (or decide yourself where to break the title line), use the `\nl` command which inserts a newline at a point of your choosing (this still inserts proper spacing in the metadata).
 
 ### Most Important Commands
 
@@ -262,7 +264,7 @@ Please be aware, that you should use either the environment _or_ `\makedeclarati
 #### Bibliography Support
 
 This module essentially provides the recommended package of [biblatex](https://ctan.org/pkg/biblatex) and [csquotes](https://ctan.org/pkg/csquotes) for the bibliography using [biber](https://ctan.org/pkg/biber) as the backend.
-The common commands like `\addbibresource`, `\cite`, and `\printbibliography` work like normal but interplay with the margin (by default that is). 
+The common commands like `\addbibresource`, `\cite`, and `\printbibliography` work like normal but interplay with the margin (by default that is).
 If you want bibliography support, but do not want cites to appear in the margin, you can set the document class option `citeInMarginpar` to false:
 
 ```latex
@@ -289,7 +291,7 @@ This module configures the look and feel of chapters, sections, and other struct
 
 #### Colors
 
-By default, this module provides the colors supplied by the [xcolor](https://ctan.org/pkg/xcolor) package. However, it is also responsible for loading the [profile-specific](#adapting-for-other-universities-or-institutes) colors (if available). 
+By default, this module provides the colors supplied by the [xcolor](https://ctan.org/pkg/xcolor) package. However, it is also responsible for loading the [profile-specific](#adapting-for-other-universities-or-institutes) colors (if available).
 For an example, have a look at the color definition of the `uulm-sp` profile in the [_config/profiles/uulm-sp/colors.tex](_config/profiles/uulm-sp/colors.tex) file with its primary color `RGB(163,38,56)` (named `@primary`) for the [SP institute](https://www.uni-ulm.de/in/sp/).
 
 #### Useful Environments
@@ -382,7 +384,7 @@ _Include the [glossary module](_config/internal/glossary.tex) with `\ThesisModul
 Combining the [glossaries-accsupp](https://ctan.org/pkg/glossaries-accsupp) and the [glossary-longragged](https://ctan.org/pkg/glossaries) package, this module provides (margin paragraph aware) support for glossaries. You can use all glossary commands as usual.
 
 The default setup provides you with normal glossaries, acronyms, and symbols ("notation"),
-have a look at the default [segments/glossary.tex](_config/segments/glossary.tex) file provided for sample definitions, and the [segments/introduction.tex](_config/segments/introduction.tex) file for a sample usage. Similar to the [bibliography module](#bibliography-support), 
+have a look at the default [segments/glossary.tex](_config/segments/glossary.tex) file provided for sample definitions, and the [segments/introduction.tex](_config/segments/introduction.tex) file for a sample usage. Similar to the [bibliography module](#bibliography-support),
 `\noside{...}` and `\disablesidetrue` can be used to prevent glossary entries from appearing in the marginpar. Additionally, `\sidesymbol{...}` can be used to place a symbol (only) in the marginpar. Especially to show multiple symbols we offer `\showsymbols{...,...,...}` (which may be followed by an optional star to force their appearance).
 
 Besides those changes there is another, arguably opinionated change, which I (at least used to) feel relatively strongly about: custom replacement texts. If i have a glossary entry, for let's say "dataflow analysis" and I want to quote it in another context where "dataflow" suffices (e.g., in "dataflow and control flow analysis"), glossaries usually require you to either print the full term or to use one of their user fields to overwrite the text.
@@ -440,7 +442,7 @@ If you load the listings module you gain all features provided by the [xlistings
    \end{minted}
    ```
 
-- With `\xlstlangoverride{<lang>}{<keys>}` you get language sensitive overrides: 
+- With `\xlstlangoverride{<lang>}{<keys>}` you get language sensitive overrides:
 
   ```latex
   \xlstlangoverride{R}{
@@ -488,7 +490,7 @@ Doing that yuo can typeset an algorithm like the following, in the document, you
    \Input{x :: String}
    \Output{y :: String}
    \Output{z :: String}
-   
+
    \StartCode % for the main algorithm
    \lIf{x \KwIs "hello"}{
       \label{alg:important-line}\Return{"world"}
