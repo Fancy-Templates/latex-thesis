@@ -11,6 +11,7 @@
     placement=tp,
 ]{pseudo}
 
+\ifthesis@pageInFloatRef
 \InitPageCounter{pseudo}
 \def\thesissetalg{\CountThisPage{pseudo}{c@pseudo@lb}}
 \def\thepseudo{\@formatcounter p{\c@pseudo@lb}}
@@ -18,6 +19,7 @@
    \def\thepseudo{Algorithm~\@formatcounter p{\c@pseudo@lb}}%
 }
 \AtBeginEnvironment{pseudo}{\HookCustomEnvCount{lop}{\thesissetalg}}
+\fi
 % \AddToHook{shipout/after}{\global\c@pseudo@lb0}
 
 \algoheightrule=1.15\p@ \algotitleheightrule=.8\p@
@@ -47,12 +49,10 @@
 \addto\captionsenglish{\def\pseudoname{Algorithm}\def\pseudoautorefname{\pseudoname}}
 \crefname{pseudo}{Alg.}{Alg.}
 
-
 % i do not like InOut
 \SetKwInput{Input}{In}
 \SetKwInput{Output}{Out}
-% \def\DataflowProcessorOut{\Output{environment~\(E\), graph~\(G\), in-, outgoing, and unknown references~\(I\),\,\(O\)\,\&\,\(U\)}}
 \SetArgSty{}
 \SetAlgoHangIndent{2.5em}
 
-\newcommand*{\AlgoLineRef}[2][line]{#1~\thesis@disablehyper{\ref{#2}}}
+\newcommand*\AlgoLineRef[2][line]{#1~\thesis@disablehyper{\ref{#2}}}
