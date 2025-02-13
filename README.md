@@ -192,6 +192,7 @@ Of course, not all options are equally important. Those of importance are at the
 | `citeInMarginpar` | true          | If set to false, citations will not appear in the marginpar (see [bibliography support](#bibliography-support)).                               |
 | `draft`           | false         | If set to true, the document will be compiled in draft mode (showing overfull boxes, ...).                                                     |
 | `license`         | CCBY          | The license to use for the document (see [licensing](#licensing)).                                                                             |
+| `pageInFloatRef`  | true          | This automatically activates the effects of the [floats module](#floats). If you set this to `false` you get the default LaTeX numbering.      |
 | `profile`         | uulm-sp       | The profile to use for the document (see the [profiles](#adapting-for-other-universities-or-institutes)).                                      |
 | `type`            | master-thesis | The type of the thesis (either `bachelor-thesis` or `master-thesis`).                                                                          |
 | `verbose`         | false         | If set to true, the document will be compiled in verbose mode (showing more information in the log and more detailed error messages).          |
@@ -211,6 +212,54 @@ Of course, not all options are equally important. Those of importance are at the
 | `sftitle`         | false         | If set to true, the document will be compiled with a sans-serif title (see [fonts](#fonts), complements `rmtitle`).                            |
 | `twoside`         | false         | If set to false, the document will be compiled in oneside mode (complements `oneside`).                                                        |
 
+<details>
+<summary>Tree-View of these Options</summary>
+
+The following shows the configuration options in a tree-hierarchy:
+
+```mermaid
+flowchart TD
+    template(Template)
+    
+    template --- meta{{meta}}
+    template --- layout{{layout}}
+    template --- output{{output}}
+    template --- font{{font}}
+    template --- references{{references}}
+
+    output --- target{{target}}
+    output --- draft("`<code>draft</code>`")
+    target --- print("`<code>print</code>`") 
+    target --- digital("`<code>digital</code>`")
+
+    meta --- license("`<code>license</code>`")
+    meta --- profile("`<code>profile</code>`")
+    meta --- type("`<code>type</code>`")
+    meta --- verbose("`<code>verbose</code>`")
+    meta --- configpath("`<code>configpath</code>`")
+
+    layout --- citeInMarginpar("`<code>citeInMarginpar</code>`")
+    layout --- paper("`<code>paper</code>`")
+    layout --- pages{{pages}}
+    pages --- oneside("`<code>oneside</code>`")
+    pages --- twoside("`<code>twoside</code>`")
+
+    font --- beramono("`<code>beramono</code>`")
+    font --- fira("`<code>fira</code>`")
+    font --- fontsize("`<code>fontsize</code>`")
+    font --- palatino("`<code>palatino</code>`")
+
+    font --- title{{title}}
+    title --- rmtitle("`<code>rmtitle</code>`")
+    title --- sftitle("`<code>sftitle</code>`")
+    
+    references --- hyperlinks{{hyperlinks}} 
+    hyperlinks --- hyperref("`<code>hyperref</code>`")
+    hyperlinks --- nohyperref("`<code>nohyperref</code>`")
+    references --- pageInFloatRef("`<code>pageInFloatRef</code>`")
+```
+
+</details>
 </details>
 
 Besides this, the common module provides some useful commands:
@@ -306,6 +355,8 @@ Originally, this module provided much more, a huge collection of macros which th
 
 This module uses the [caption](https://ctan.org/pkg/caption) and the [subcaption](https://ctan.org/pkg/subcaption) package to configure the styling of floating elements (figures, tables, ...). It also provides the `subfigure` environment to group figures together.
 For example, it causes figures and tables to follow a non-standard numbering scheme which uses the page number as well as the occurrence count of a float of that type on that page. While this sounds complicated, `Figure 13A` simply states that this is the first figure on page 13, `Figure 13B` would be the second, and so on (fight me on this being a much better naming scheme for floats).
+If you (for whatever unfathomable reason) dislike this scheme, the [document class option](#the-common-module) `pageInFloatRef` can be set to false to revert to the default LaTeX numbering.
+This still leaves you with the tools to register your own (see below), but disables the automatic hooks into the float environments.
 
 You can use the float environments (`figure`, `table`, ...) as well as captions (`\caption`, ...) as usual. Usually we try to place captions for figures below the graphic, while we place captions before/above tables.
 

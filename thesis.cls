@@ -30,6 +30,7 @@
 \DeclareBoolOption[true]{citeInMarginpar}
 \DeclareBoolOption[false]{sftitle}
 \DeclareComplementaryOption{rmtitle}{sftitle}
+\DeclareBoolOption[true]{pageInFloatRef}
 
 % links
 \DeclareBoolOption[true]{hyperref}
