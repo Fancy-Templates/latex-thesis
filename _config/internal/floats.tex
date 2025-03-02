@@ -69,8 +69,8 @@
 \AtBeginEnvironment{tabularx} {\HookCount{lot}{\thesissettbl}}
 \fi
 
-\addto\captionsngerman{\def\figurename{Abbildung}\def\figureautorefname{\figurename}\def\tablename{Tabelle}\def\tableautorefname{\tablename}}
-\addto\captionsenglish{\def\figurename{Figure}\def\figureautorefname{\figurename}\def\tablename{Table}\def\tableautorefname{\tablename}}
+\appto\captionsngerman{\def\figurename{Abbildung}\def\figureautorefname{\figurename}\def\tablename{Tabelle}\def\tableautorefname{\tablename}}
+\appto\captionsenglish{\def\figurename{Figure}\def\figureautorefname{\figurename}\def\tablename{Table}\def\tableautorefname{\tablename}}
 
 % \global\c@exa@lb0 \global\c@nts@lb0
 % \AddToHook{shipout/after}{\global\c@figure@lb0 \global\c@table@lb0}
