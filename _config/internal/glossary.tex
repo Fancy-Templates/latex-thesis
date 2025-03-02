@@ -102,28 +102,30 @@
 % change gls base; does never print long for ac;
 \newif\ifglsshouldbeit \glsshouldbeittrue% falses are all in group
 
-% make insert an 'overwrite' and embed default sets
+\def\@thesis@gls#1#2#3{\@insertchk{\ifglsused{#1}{#3{#1}}{#2{#1}}}}
 \def\@insertchk#1{\ifx\glsinsert\@empty#1\else\glsinsert\fi}%
 \def\thesissidenotebase{% \ifglsshouldbeit\expandafter\textit\fi
-{\ifdefempty\glscustomtext{%
+% !\glsinsert!\glslabel!\glstype @\@insertchk{\@gls@link[]{\glslabel}{x}}%
+% \glsifplural{\glslabel}{\glslink{\glslabel}{\ifglsused{\glslabel}{\glsentryplural{\glslabel}}{\glsentryfirst{\glslabel}}}}{\glslink{\glslabel}{\ifglsused{\glslabel}{\glsentryname{\glslabel}}{\glsentryfirst{\glslabel}}}%
+\ifdefempty\glscustomtext{%
 \glsifplural{%
   \glscapscase{%
-    \@insertchk{\glsentryplural{\glslabel}}%
+    \@thesis@gls\glslabel\glsentryfirstplural\glsentryplural
   }{%
-    \@insertchk{\Glsentryplural{\glslabel}}%
+    \@thesis@gls\glslabel\Glsentryfirstplural\Glsentryplural
   }{%
-    \mfirstucMakeUppercase{\@insertchk{\glsentryplural{\glslabel}}}%
+    \mfirstucMakeUppercase{\@thesis@gls\glslabel\glsentryfirstplural\glsentryplural}%
   }%
 }{%
   \glscapscase{%
-    \@insertchk{\glsentrytext{\glslabel}}%
+      \@thesis@gls\glslabel\glsentryfirst\glsentryname
   }{%
-    \@insertchk{\Glsentrytext{\glslabel}}%
+      \@thesis@gls\glslabel\Glsentryfirst\Glsentryname
   }{%
-    \mfirstucMakeUppercase{\@insertchk{\glsentrytext{\glslabel}}}%
+    \mfirstucMakeUppercase{\@thesis@gls\glslabel\glsentryfirst\glsentryname}%
   }%
 }%
-}{\@insertchk{\glscustomtext}}}}
+}{\glslink{\glslabel}{\@insertchk{\glscustomtext}}}}%
 
 \def\thesissidenotesymbol{%
    \ifglsshouldbeit\expandafter\textsl\fi{\@insertchk{\glssymbol{\glslabel}}}%
