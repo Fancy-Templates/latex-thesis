@@ -23,6 +23,7 @@
 \DeclareStringOption[10pt]{fontsize}
 \DeclareStringOption[a4]{paper}
 \DeclareBoolOption[true]{oneside}
+\DeclareBoolOption[true]{enhanceMath}
 \DeclareComplementaryOption{twoside}{oneside}
 % also this option still exists, disabling the marginpar is no longer (fully) supported
 \DeclareBoolOption[true]{marginpar}

@@ -191,6 +191,7 @@ Of course, not all options are equally important. Those of importance are at the
 |:----------------- |:------------- |:---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `citeInMarginpar` | true          | If set to false, citations will not appear in the marginpar (see [bibliography support](#bibliography-support)).                               |
 | `draft`           | false         | If set to true, the document will be compiled in draft mode (showing overfull boxes, ...).                                                     |
+| `enhanceMath`     | true          | Load advanced math fonts (see [fonts](#fonts)).                                                                                                 |
 | `license`         | CCBY          | The license to use for the document (see [licensing](#licensing)).                                                                             |
 | `pageInFloatRef`  | true          | This automatically activates the effects of the [floats module](#floats). If you set this to `false` you get the default LaTeX numbering.      |
 | `profile`         | uulm-sp       | The profile to use for the document (see the [profiles](#adapting-for-other-universities-or-institutes)).                                      |
@@ -246,6 +247,7 @@ flowchart TD
 
     font --- beramono("`<code>beramono</code>`")
     font --- fira("`<code>fira</code>`")
+    font --- enhanceMath("`<code>enhanceMath</code>`")
     font --- fontsize("`<code>fontsize</code>`")
     font --- palatino("`<code>palatino</code>`")
 
@@ -408,6 +410,7 @@ At the moment, we have no detailed guide about how you can register your own flo
 This module, surprise, loads the default fonts used in this document and provides you with a semi-bold font-weight (accessible with the commands `\sbseries` and `\textsb{...}`).
 By default (and this is good believe me), we rely on [old-style figures](https://en.wikipedia.org/wiki/Text_figures) (also known as text figures) for numbers in the text. You can recognize them by the fact that they are not all on the same height and some of them even have depth (have a look at the `3` which hangs below the baseline).
 If you do not like this (even only in a given scope), the `\LiningFigures` command switches to lining figures. As is usual, this happens automatically in tables (and math mode).
+In case you require a lot of math, the `enhanceMath` document class option updates the `\mathcal` style and relies on [notomath](https://ctan.org/pkg/notomath) for math symbols.
 
 If you are interested in the fonts used, have a look at the [fonts.tex](_config/internal/fonts.tex) file (they can be configured with the document class options `beramono`, `palatino`, and `fira`).
 

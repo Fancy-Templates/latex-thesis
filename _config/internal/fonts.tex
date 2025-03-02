@@ -33,6 +33,13 @@
 \fi
 \fi
 
+\ifthesis@enhanceMath
+    \thesis@debug{Enhancing mat typesetting}
+    \PassOptionsToPackage{vvarbb}{notomath}
+    \RequirePackage{notomath}
+    \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\fi
+
 \ifthesis@fira
     \thesis@debug{Loading fira sans-serif font}%
     \RequirePackage{FiraSans}
