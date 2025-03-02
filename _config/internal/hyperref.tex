@@ -163,7 +163,8 @@
 % TODO: add flags for notation glossary that is used for e.g. E_A etc.
 
 \AtEndPreamble{\def\multicitedelim{,~}}% do not break!
-\RequirePackage[super]{nth}
+\PassOptionsToPackage{super}{nth}
+\RequirePackage{nth}
 % the raise is wayyy to much:
 \def\nthscript#1{\smash{\textsuperscript{\raisebox{-2pt}{#1}}}}
 \def\nthpagelink#1{\hyperlink{page.#1}{\nth{#1}}}
@@ -180,6 +181,12 @@
 \def\reftextlabelrange#1#2{\smash{\ref{#1}} to~\smash{\ref{#2}}}%
 }
 
-% TODO: translate
-\crefname{eq}{Equation}{Equations}
-\crefname{algocfline}{Line}{Lines}
+\appto\extrasngerman{%
+   \Crefname{eq}{Gleichung}{Gleichungen}%
+   \Crefname{algocfline}{Zeile}{Zeilen}%
+}
+\appto\extrasenglish{%
+   \Crefname{eq}{Equation}{Equations}%
+   \Crefname{algocfline}{Line}{Lines}%
+}
+

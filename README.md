@@ -347,11 +347,12 @@ For an example, have a look at the color definition of the `uulm-sp` profile in 
 
 #### Useful Environments
 
-Originally, this module provided much more, a huge collection of macros which the original author (me ✨) found useful in his thesis. However, as these require a lot of getting-used-to,they have been removed from this setup. What remains are three environments (which you can find in the aforementioned [master thesis](http://dx.doi.org/10.18725/OPARU-50107) as well):
+Originally, this module provided much more, a huge collection of macros which the original author (me ✨) found useful in his thesis. However, as these require a lot of getting-used-to,they have been removed from this setup. What remains are four environments (which you can find in the aforementioned [master thesis](http://dx.doi.org/10.18725/OPARU-50107) as well):
 
 - `abstract`: Provides an abstract section for the document.
 - `acknowledgements`: Provides an acknowledgements section for the document.
 - `conventions`: Provides a conventions section for the document.
+- `rqs`: Provides a research questions enumerate list (which can be nested)
 
 #### Floats
 
