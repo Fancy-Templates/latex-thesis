@@ -411,7 +411,7 @@ At the moment, we have no detailed guide about how you can register your own flo
 This module, surprise, loads the default fonts used in this document and provides you with a semi-bold font-weight (accessible with the commands `\sbseries` and `\textsb{...}`).
 By default (and this is good believe me), we rely on [old-style figures](https://en.wikipedia.org/wiki/Text_figures) (also known as text figures) for numbers in the text. You can recognize them by the fact that they are not all on the same height and some of them even have depth (have a look at the `3` which hangs below the baseline).
 If you do not like this (even only in a given scope), the `\LiningFigures` command switches to lining figures. As is usual, this happens automatically in tables (and math mode).
-In case you require a lot of math, the `enhanceMath` document class option updates the `\mathcal` style and relies on [notomath](https://ctan.org/pkg/notomath) for math symbols.
+In case you require a lot of math, the `enhanceMath` document class option updates the `\mathcal` style.
 
 If you are interested in the fonts used, have a look at the [fonts.tex](_config/internal/fonts.tex) file (they can be configured with the document class options `beramono`, `palatino`, and `fira`).
 
