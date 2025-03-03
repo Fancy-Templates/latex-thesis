@@ -24,14 +24,15 @@
 % chapter toc without minitoc, based on https://tex.stackexchange.com/a/517754
 \def\@gobbleignore#1{\ignorespaces}
 \def\thesis@marginpar@chaptertoc@do#1{%
-\parbox{\marginparwidth}{%
-   \parskip=0pt\relax
-   \parindent=0pt\relax
+\parbox\marginparwidth{%
+   \parskip\z@\relax
+   \parindent\z@\relax
    \footnotesize
    \let\scr@numberline\@gobbleignore
    \let\addvspace\@gobbleignore
    \vspace*{\dimexpr\bigskipamount+2.5pt}\noindent
    \value{tocdepth}=\sectiontocdepth
+   \kern-1ex\relax
    \listoftoc*{#1}%
    \bigskip\endgraf
 }
