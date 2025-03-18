@@ -102,6 +102,9 @@
 % change gls base; does never print long for ac;
 \newif\ifglsshouldbeit \glsshouldbeittrue% falses are all in group
 
+\def\thesis@gls@repeated@use{\glsentrytext}
+\def\thesis@Gls@repeated@use{\Glsentrytext}
+
 \def\@thesis@gls#1#2#3{\@insertchk{\ifglsused{#1}{#3{#1}}{#2{#1}}}}
 \def\@insertchk#1{\ifx\glsinsert\@empty#1\else\glsinsert\fi}%
 \def\thesissidenotebase{% \ifglsshouldbeit\expandafter\textit\fi
@@ -118,11 +121,11 @@
   }%
 }{%
   \glscapscase{%
-      \@thesis@gls\glslabel\glsentryfirst\glsentryname
+      \@thesis@gls\glslabel\glsentryfirst\thesis@gls@repeated@use
   }{%
-      \@thesis@gls\glslabel\Glsentryfirst\Glsentryname
+      \@thesis@gls\glslabel\Glsentryfirst\thesis@Gls@repeated@use
   }{%
-    \mfirstucMakeUppercase{\@thesis@gls\glslabel\glsentryfirst\glsentryname}%
+    \mfirstucMakeUppercase{\@thesis@gls\glslabel\glsentryfirst\thesis@gls@repeated@use}%
   }%
 }%
 }{\glslink{\glslabel}{\@insertchk{\glscustomtext}}}}%
