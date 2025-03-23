@@ -58,14 +58,15 @@
 \def\thesissettbl{\CountThisPage{table}{c@table@lb}}
 \def\thesissetsubfig{\CountThisPage{subfigure}{c@subfigure@lb}}
 % we must hook to scr@caption, as with @caption the labels have been already issued (meaning \thetable etc. would refer to the last one - but only in references)
-\def\HookCount#1#2{\pretocmd\scr@caption{#2}\relax\relax}%
+\def\HookCountBare#1#2#3{\pretocmd#3{#2}\relax\relax}%
+\def\HookCount#1#2{\HookCountBare{#1}{#2}\scr@caption}%
 % hook against captions from newfloat environments
 \def\HookCustomEnvCount#1#2{\pretocmd\caption@iftype{#2}\relax\relax}
 \ifthesis@pageInFloatRef
 \AtBeginEnvironment{figure}   {\HookCount{lof}{\thesissetfig}}
-\AtBeginEnvironment{subfigure}{\HookCount{lof}{\thissetsubfig}}
+\AtBeginEnvironment{subfigure}{\HookCount{lof}{\thesissetsubfig}}
 \AtBeginEnvironment{table}    {\HookCount{lot}{\thesissettbl}}
-\AtBeginEnvironment{longtable}{\HookCount{lot}{\thesissettbl}}
+\AtBeginEnvironment{longtable}{\HookCount{lot}{\thesissettbl}\HookCountBare{lot}{\thesissettbl}{\LT@capti@n}}
 \AtBeginEnvironment{tabularx} {\HookCount{lot}{\thesissettbl}}
 \fi
 

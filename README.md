@@ -562,7 +562,7 @@ Doing that yuo can typeset an algorithm like the following, in the document, you
 
 #### Tables
 
-We do not do a lot of magic with tables, besides what we configure in the [float](#floats) module. In short, we load the [array][], [booktabs][], and [tabularx][] package providing you with the great `\toprule`, `\midrule`, and `\bottomrule` commands to create beautiful tables. Please have a look at the respective package documentation (especially that for [booktabs][]) or have a look at the sample [introduction.tex](segments/introduction.tex) file.
+We do not do a lot of magic with tables, besides what we configure in the [float](#floats) module. In short, we load the [array][], [booktabs][], [tabularx][], and [longtable][] packages providing you with great commands such as `\toprule`, `\midrule`, and `\bottomrule` to create beautiful tables. Please have a look at the respective package documentation (especially that for [booktabs][]) or have a look at the sample [introduction.tex](segments/introduction.tex) file.
 
 #### Titlepage
 
@@ -603,6 +603,7 @@ This module loads and configures [siunitx][] to provide you with a set of comman
 [ifoddpage]: https://ctan.org/pkg/ifoddpage
 [koma]: https://ctan.org/pkg/koma-script
 [listings]: https://ctan.org/pkg/listings
+[longtable]: https://ctan.org/pkg/longtable
 [marginnote]: https://ctan.org/pkg/marginnote
 [minted]: https://ctan.org/pkg/minted
 [mparhack]: https://ctan.org/pkg/mparhack
