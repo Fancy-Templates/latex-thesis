@@ -93,7 +93,7 @@ There is only a small number of commands that you should know when working with 
 - _Links:_\
   We use the [cleveref][] package to provide you with the `\cref` command for linking. So instead of `\label{marker}...\autoref{marker}` you can use `\label{marker}...\cref{marker}`. If you want to link to a specific section, you can use the `\link` command: `\link{sec:mysec}{Super Text}`. If you want to link to a specific section and do not want the link to be highlighted, you can use `\link*{sec:mysec}{Super Text}` ([hyper references module](#hyper-references)).
 - _Chapters:_\
-   Before each chapter, you can use `\setchaptertoc` to have a mini table of contents in the sidebar. After starting each `\chapter`, you can use `\csummary` to provide a summary of the chapter in the main table of contents ([chapter module](#chapters-and-minitocs)).
+   Before each chapter, you can use `\setchaptertoc` to have a mini table of contents in the sidebar. After starting each `\chapter`, you can use `\csummary` to provide a summary of the chapter in the main table of contents ([chapter module](#chapters-and-minitocs)). Additionally, the `summary` environment is intended to be used at the start of every chapter to provide a short overview of what is to be presented in the chapter. This environment does minor space compensation and prohibits references from occurring in the sidebar (to avoid clutter).
 - _Sidebar:_\
    This theses often writes into the sidebar and you may find that unhelpful or annoying from time to time, you can use `\disablesidetrue` to disable all sidebar writing commands from now on (and `\disablesidefalse` to re-enable them). If you just want to disable it for a set of commands, you can also use `\noside{...}` ([marginpar module](#marginpars)).
 
