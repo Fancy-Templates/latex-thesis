@@ -76,8 +76,8 @@
 \RequirePackage[capitalise,noabbrev,nameinlink]{cleveref}
 \RequirePackage{fontawesome}
 % append the format so that it produces something in the margin
-\LetLtxMacro\basicCref\Cref% NOTE: i capitalize this way, so varioref is not affected.
-\LetLtxMacro\basiccref\cref
+\DeclareCommandCopy\basicCref\Cref% NOTE: i capitalize this way, so varioref is not affected.
+\DeclareCommandCopy\basiccref\cref
 \def\cref{\@ifstar\basicCref\modifiedcref} \robustify\cref
 \def\Cref{\cref} \robustify\Cref% brrrh -- but as we capitalise anyway with calling basicCref
 

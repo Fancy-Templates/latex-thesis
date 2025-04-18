@@ -4,9 +4,8 @@
 }
 
 \thesis@info{Apply footnote patch}
-\RequirePackage{letltxmacro}
 
-\LetLtxMacro\thesis@oldfootnote\footnote
+\DeclareCommandCopy\footnote\thesis@oldfootnote
 
 \newcounter{thesis@side@footnote}[chapter]
 

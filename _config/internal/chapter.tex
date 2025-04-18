@@ -114,8 +114,8 @@
 \def\csumnext{\\[.4ex]}
 \def\csummary#1{\addtocontents{toc}{\protect\sidenote{\itshape\chapapp~\thechapter:\\[.5ex]#1}}}
 \newenvironment{summary}{\vspace*{-.65\medskipamount}\begingroup
-\LetLtxMacro\Cref\basicCref % just avoid side markers in the summary
-\LetLtxMacro\cref\basiccref
+\DeclareCommandCopy\Cref\basicCref % just avoid side markers in the summary
+\DeclareCommandCopy\cref\basiccref
 \hypersetup{allcolors=.,citecolor=@cite}\thesisglsinsidefalse
 }%
 {\thesis@voidpar\endgroup\smallskip\thesis@voidpar}

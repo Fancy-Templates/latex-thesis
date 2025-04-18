@@ -46,7 +46,9 @@
 \newif\if@sidecite@doreset@
 \def\forcecite#1{{\@sidecite@doreset@true\sidecite{#1}\plaincite{#1}}}
 \def\sidecite#1{%
-   \@for\etry:={#1}\do{%
+   \edef\@chk{\detokenize{#1}}%
+   \ifx\@chk\@empty\else
+   \@for\etry:=\@chk\do{%
       \if@sidecite@doreset@
          \csundef{mcited\etry}%
       \fi
@@ -59,15 +61,18 @@
       \else
          \@locksidecite
       \fi
-   }%
+   }\fi%
 }
 
-\RequirePackage{letltxmacro}
-\LetLtxMacro\plaincite\cite
+\newcommand*\plaincite[2][]{}
+
 % \ifthesis@print\else
+\AfterEndPreamble{%
 \ifthesis@citeInMarginpar
+\DeclareCommandCopy\plaincite\cite
 \renewcommand*\cite[2][]{\ifdisableside\else\sidecite{#2}\fi\plaincite[#1]{#2}}
 \fi% \fi
+}
 
 \DeclareFieldFormat{thesis@mp@author}{x#1x}
 \DeclareLabeltitle{\field{shorttitle}\field{title}}
