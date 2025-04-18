@@ -29,7 +29,7 @@
 \def\InitPageCounter#1{\newcounter{c@@#1@@lb}\csdef{c@#1@lb}{0}}
 
 % we no longer do that but instead use a macro for each page
-\InitPageCounter{figure}\InitPageCounter{subfigure}\InitPageCounter{table}
+\InitPageCounter{figure}\InitPageCounter{subfigure}\InitPageCounter{table}\InitPageCounter{lstlisting}
 % #1 type like figure | table | ..., #2 counter
 \def\CountThisPageWrite#1#2{%
 \expandafter\providecommand\csname c@#1@#2\endcsname{0}% a default value
@@ -57,17 +57,21 @@
 \def\thesissetfig{\CountThisPage{figure}{c@figure@lb}}
 \def\thesissettbl{\CountThisPage{table}{c@table@lb}}
 \def\thesissetsubfig{\CountThisPage{subfigure}{c@subfigure@lb}}
+\def\thesissetlst{\CountThisPage{lstlisting}{c@lstlisting@lb}}
 % we must hook to scr@caption, as with @caption the labels have been already issued (meaning \thetable etc. would refer to the last one - but only in references)
 \def\HookCountBare#1#2#3{\pretocmd#3{#2}\relax\relax}%
 \def\HookCount#1#2{\HookCountBare{#1}{#2}\scr@caption}%
 % hook against captions from newfloat environments
 \def\HookCustomEnvCount#1#2{\pretocmd\caption@iftype{#2}\relax\relax}
+\def\HookLstCount#1#2{\HookCountBare{#1}{#2}\@makecaption}
 \ifthesis@pageInFloatRef
 \AtBeginEnvironment{figure}   {\HookCount{lof}{\thesissetfig}}
 \AtBeginEnvironment{subfigure}{\HookCount{lof}{\thesissetsubfig}}
 \AtBeginEnvironment{table}    {\HookCount{lot}{\thesissettbl}}
 \AtBeginEnvironment{longtable}{\HookCount{lot}{\thesissettbl}\HookCountBare{lot}{\thesissettbl}{\LT@capti@n}}
 \AtBeginEnvironment{tabularx} {\HookCount{lot}{\thesissettbl}}
+\AtBeginEnvironment{lstlisting}{\HookLstCount{lol}{\thesissetlst}}
+\AtBeginEnvironment{minted}{\HookLstCount{lol}{\thesissetlst}}
 \fi
 
 \appto\captionsngerman{\def\figurename{Abbildung}\def\figureautorefname{\figurename}\def\tablename{Tabelle}\def\tableautorefname{\tablename}}
@@ -99,12 +103,14 @@
 \ifthesis@pageInFloatRef
 \def\thefigure{\@formatcounter f{\c@figure@lb}}
 \def\thetable{\@formatcounter t{\c@table@lb}}
+\def\thelstlisting{\@formatcounter l{\c@lstlisting@lb}}
 \fi
 
 \def\makelongrefs{%
 \ifthesis@pageInFloatRef
 \def\thefigure{Figure~\@formatcounter f{\c@figure@lb}}%
 \def\thetable{Table~\@formatcounter t{\c@table@lb}}%
+\def\thelstlisting{Listing~\@formatcounter l{\c@lstlisting@lb}}
 \fi
 % \def\thesubfigure{Subfigure~\@formatcounter f{\c@figure@lb/\alph{subfigure}}}%
 % \def\theexa{Example~\@formatcounter e{\c@exa@lb}}%
