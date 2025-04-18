@@ -28,6 +28,11 @@
 
 \newenvironment{full-titlepage}{\begingroup
    % manually reconstructed initialization of koma script
+   % if twoside
+   \if@twoside 
+   \setcounter{page}{-1}%
+   \thispdfpagelabel{Coverpage}%
+   \fi
    \thispagestyle{empty}%
    \edef\titlepage@restore{%
       \noexpand\endgroup
