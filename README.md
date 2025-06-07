@@ -1,5 +1,8 @@
-[Newest Build of PDF](../-/jobs/artifacts/main/raw/thesis.pdf?job=build-pdf)
+# The fancy LaTeX thesis template
 
+[![Static Badge](https://img.shields.io/badge/LaTeX-Inside-blue?style=for-the-badge&labelColor=darkorange&color=white)](https://www.latex-project.org/)
+
+This thesis was originally designed for bachelor's and master's theses at [Ulm University][sp-institute], but can be easily adapted to other universities and, e.g., doctoral dissertations.
 This readme serves several purposes:
 
 1. [Setting Up](#setting-up):\
@@ -9,19 +12,19 @@ This readme serves several purposes:
 3. [Full Reference](#full-reference):\
    Provide a more thorough reference of the commands and environments provided by the template
 
-See the [ai-rules.md](./ai-rules.md) for the rules regarding the use of AI in theses.
+See the [ai-rules-uulm.md](./ai-rules-uulm.md) for the rules regarding the use of AI in theses specifically at Ulm University.
 
 > Originally, I ([Florian][homepage]) created the basis of this template for my [bachelor's thesis][doi-ba] and minified it on request for my [master's thesis][doi-ma]. Even though I invested a lot of effort since then to make it standalone (and much, much, much easier to use), there are still some parts that are not as polished as they should be (and many modules not ported).
 >
 > If you encounter any problem, please write me an [email](mailto:florian.sihler@uni-ulm.de) or open an issue!
-> The same holds for feature and documentation request, do not hesitate to open a new issue!
+> The same holds for feature and documentation request, do not hesitate to open [a new issue][new-issue]!
 
 ## Setting Up
 
 The main idea of using this thesis is in a clone-and-own fashion. So you may either
 
-- [fork](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html) this repository (or have it forked by your supervisor), or
-- [create a new repository](https://docs.github.com/en/github/getting-started-with-github/create-a-repo) initialized with this template.
+- fork ([GitLab](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html), [GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)) this repository (or have it forked by your supervisor), or
+- create a new repository ([GitLab](https://docs.github.com/en/github/getting-started-with-github/create-a-repo), [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)) initialized with this template.
 
 We prefer forking, as it allows you to keep the history of the template and directly pull in changes from the template (if you want to).
 
@@ -55,7 +58,7 @@ Please note that the segments are just a generic suggestion, it is probably best
 
 It is up to you and your supervisor whether you want to use the structure provided in this template (especially with regard to the files in the [segments](segments/) folder).
 In general, we block the `thesis.pdf` and a `signature` image (see the [declaration of authenticity](#declaration-of-authenticity) module) from being committed to the repository ([.gitignore](.gitignore)) and even if you rename that main file you should refrain from pushing compiled (blobs/) files to the repository to avoid cluttering it.
-**However**, to persist your final state in an easily accessible way, we encourage you to upload the compiled version of your final and submitted thesis to this repository as well.
+**However**, to persist your final state in an easily accessible way, we encourage you to (at least at the University of Ulm) upload the compiled version of your final and submitted thesis to this repository as well.
 Please use  the format `<Surname><Firstname>-<Type>.pdf` for the file name, where `<Type>` is either `BachelorThesis` or `MasterThesis` (e.g., `SihlerFlorian-MasterThesis.pdf`).
 
 For more information on the actual submission, please consult your supervisor ([FAQ Page of Ulm University](https://www.uni-ulm.de/studium/pruefungsverwaltung/pruefungen-und-module-faq/)).
@@ -343,7 +346,7 @@ This module configures the look and feel of chapters, sections, and other struct
 #### Colors
 
 By default, this module provides the colors supplied by the [xcolor](https://ctan.org/pkg/xcolor) package. However, it is also responsible for loading the [profile-specific](#adapting-for-other-universities-or-institutes) colors (if available).
-For an example, have a look at the color definition of the `uulm-sp` profile in the [_config/profiles/uulm-sp/colors.tex](_config/profiles/uulm-sp/colors.tex) file with its primary color `RGB(163,38,56)` (named `@primary`) for the [SP institute](https://www.uni-ulm.de/in/sp/).
+For an example, have a look at the color definition of the `uulm-sp` profile in the [_config/profiles/uulm-sp/colors.tex](_config/profiles/uulm-sp/colors.tex) file with its primary color `RGB(163,38,56)` (named `@primary`) for the [SP institute][sp-institute].
 
 #### Useful Environments
 
@@ -607,12 +610,14 @@ This module loads and configures [siunitx][] to provide you with a set of comman
 [marginnote]: https://ctan.org/pkg/marginnote
 [minted]: https://ctan.org/pkg/minted
 [mparhack]: https://ctan.org/pkg/mparhack
+[new-issue]: https://github.com/Fancy-Templates/latex-thesis/issues/new
 [newfloat]: https://ctan.org/pkg/newfloat
 [nth]: https://ctan.org/pkg/nth
 [ragged2e]: https://ctan.org/pkg/ragged2e
 [scrlayer-notecolumn]: https://ctan.org/pkg/scrlayer-notecolumn
 [scrlayer-scrpage]: https://ctan.org/pkg/scrlayer-scrpage
 [siunitx]: https://ctan.org/pkg/siunitx
+[sp-institute]: https://www.uni-ulm.de/in/sp/
 [tabularx]: https://ctan.org/pkg/tabularx
 [translator]: https://ctan.org/pkg/translator
 [url]: https://ctan.org/pkg/url
