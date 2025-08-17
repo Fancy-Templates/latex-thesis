@@ -511,6 +511,8 @@ If you load the listings module you gain all features provided by the [xlistings
 
 - The `add to literate` key allows you to add new literates (i.e., replacements) for your listings.
 
+- You can enable language indicator badges with `\xlstmintedwithlangbadge` (for all minted environments) or with `\BadgeNextListing{<lang>}` for the next listing!
+
 The [xlistings][] package is part of this template under [./_config/xlistings.sty](./_config/xlistings.sty), if you want to update it for your template instance, you may want to use the [./_config/update_xlistings.sh](./_config/update_xlistings.sh) shellscript.
 
 #### Margin Paragraphs
