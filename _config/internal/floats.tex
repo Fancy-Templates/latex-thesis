@@ -63,7 +63,7 @@
 \def\HookCount#1#2{\HookCountBare{#1}{#2}\scr@caption}%
 % hook against captions from newfloat environments
 \def\HookCustomEnvCount#1#2{\pretocmd\caption@iftype{#2}\relax\relax}
-\def\HookLstCount#1#2{\HookCountBare{#1}{#2}\@makecaption}
+\def\HookLstCount#1#2{\HookCountBare{#1}{#2}\lst@MakeCaption}
 \ifthesis@pageInFloatRef
 \AtBeginEnvironment{figure}   {\HookCount{lof}{\thesissetfig}}
 \AtBeginEnvironment{subfigure}{\HookCount{lof}{\thesissetsubfig}}
@@ -103,7 +103,8 @@
 \ifthesis@pageInFloatRef
 \def\thefigure{\@formatcounter f{\c@figure@lb}}
 \def\thetable{\@formatcounter t{\c@table@lb}}
-\def\thelstlisting{\@formatcounter l{\c@lstlisting@lb}}
+% this has to happen very late because... well... thank you listings
+\AddToHook{begindocument/end}{\def\thelstlisting{\@formatcounter l{\c@lstlisting@lb}}}
 \fi
 
 \def\makelongrefs{%
