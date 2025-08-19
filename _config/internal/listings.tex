@@ -31,4 +31,7 @@
 \crefname{lstlisting}{Listing}{Listings}%
 \Crefname{lstlisting}{Listing}{Listings}%
 
+\DeclareCommandCopy\thesis@lstlistoflistings\lstlistoflistings
+\def\lstlistoflistings{\bgroup\hypersetup{allcolors=.}\thesis@lstlistoflistings\egroup}
+
 \makeatother
