@@ -59,7 +59,7 @@ Please note that the segments are just a generic suggestion, it is probably best
 It is up to you and your supervisor whether you want to use the structure provided in this template (especially with regard to the files in the [segments](segments/) folder).
 In general, we block the `thesis.pdf` and a `signature` image (see the [declaration of authenticity](#declaration-of-authenticity) module) from being committed to the repository ([.gitignore](.gitignore)) and even if you rename that main file you should refrain from pushing compiled (blobs/) files to the repository to avoid cluttering it.
 **However**, to persist your final state in an easily accessible way, we encourage you to (at least at the University of Ulm) upload the compiled version of your final and submitted thesis to this repository as well.
-Please use  the format `<Surname><Firstname>-<Type>.pdf` for the file name, where `<Type>` is either `BachelorThesis` or `MasterThesis` (e.g., `SihlerFlorian-MasterThesis.pdf`).
+Please use the format `<Surname><Firstname>-<Type>.pdf` for the file name, where `<Type>` is either `BachelorThesis` or `MasterThesis` (e.g., `SihlerFlorian-MasterThesis.pdf`).
 
 For more information on the actual submission, please consult your supervisor ([FAQ Page of Ulm University](https://www.uni-ulm.de/studium/pruefungsverwaltung/pruefungen-und-module-faq/)).
 
@@ -98,7 +98,7 @@ There is only a small number of commands that you should know when working with 
 - _Chapters:_\
    Before each chapter, you can use `\setchaptertoc` to have a mini table of contents in the sidebar. After starting each `\chapter`, you can use `\csummary` to provide a summary of the chapter in the main table of contents ([chapter module](#chapters-and-minitocs)). Additionally, the `summary` environment is intended to be used at the start of every chapter to provide a short overview of what is to be presented in the chapter. This environment does minor space compensation and prohibits references from occurring in the sidebar (to avoid clutter).
 - _Sidebar:_\
-   This theses often writes into the sidebar and you may find that unhelpful or annoying from time to time, you can use `\disablesidetrue` to disable all sidebar writing commands from now on (and `\disablesidefalse` to re-enable them). If you just want to disable it for a set of commands, you can also use `\noside{...}` ([marginpar module](#marginpars)).
+   This theses often writes into the sidebar, and you may find that unhelpful or annoying from time to time, you can use `\disablesidetrue` to disable all sidebar writing commands from now on (and `\disablesidefalse` to re-enable them). If you just want to disable it for a set of commands, you can also use `\noside{...}` ([marginpar module](#marginpars)).
 
 Besides those, there are many others, for example, the [units module](#units) provides you with a nice and easy way to typeset SI units.
 
@@ -119,7 +119,7 @@ git submodule update --remote --merge <path/to/the/submodule>
 ```
 
 To get started, you probably should copy several files and folders, essentially everything except the [thesis.cls](thesis.cls) file and the [_config](_config/) folder which compromise the template itself.
-Now adapting the path the the loaded document class, setting the `\thesisProfilesPath{...}` should be enough to get the template to work (yet, depending on what you copy, setting the `configpath` document class option may suffice too, see the [common module](#the-common-module) for more information).
+Now adapting the path the loaded document class, setting the `\thesisProfilesPath{...}` should be enough to get the template to work (yet, depending on what you copy, setting the `configpath` document class option may suffice too, see the [common module](#the-common-module) for more information).
 
 #### Working from a Different Directory
 
@@ -127,7 +127,7 @@ If you move the complete template to your own directory, there is technically no
 
 You just may want to update the [.gitlab-ci.yml](.gitlab-ci.yml) file (moving it to the root folder and changing the working directory within) so it is still in effect and builds the thesis for you. To have the link to the latest build in the readme work, you should update the path to reflect wherever the build is stored.
 
-If you still want to receive updates there is no "automated" way so you probably have to do it via patches.
+If you still want to receive updates there is no "automated" way, so you probably have to do it via patches.
 You can create a [patch](https://git-scm.com/docs/git-apply) from the template repository using `git diff > myPatch.patch` and apply it to your repository using `git apply myPatch.patch`.
 
 
@@ -146,8 +146,8 @@ The thesis offers built-in support for LuaLaTeX (although _pdflatex_ is recommen
 
 ### Adapting for other Universities or Institutes
 
-The template provides an `profile` option for the document class, which defaults to `uulm-sp` (at the time of writing this is the only option that works).
-This corresponds to an similarly named folder in [_config/profiles](./_config/profiles) which contains the specific settings for the specific university (logo, coloring, configuration overwrites, titlepage, ...).
+The template provides a `profile` option for the document class, which defaults to `uulm-sp` (at the time of writing this is the only option that works).
+This corresponds to a similarly named folder in [_config/profiles](./_config/profiles) which contains the specific settings for the specific university (logo, coloring, configuration overwrites, titlepage, ...).
 So if you want to make your own definitions, it is probably best to clone-and-own this folder, adapt the settings to your needs, and then set the profile in the document class to your profile. If you want this to remain reusable, feel free to contribute your profile to this repository.
 
 ### Included Modules
@@ -350,7 +350,7 @@ For an example, have a look at the color definition of the `uulm-sp` profile in 
 
 #### Useful Environments
 
-Originally, this module provided much more, a huge collection of macros which the original author (me ✨) found useful in his thesis. However, as these require a lot of getting-used-to,they have been removed from this setup. What remains are four environments (which you can find in the aforementioned [master thesis](http://dx.doi.org/10.18725/OPARU-50107) as well):
+Originally, this module provided much more, a huge collection of macros which the original author (me ✨) found useful in his thesis. However, as these require a lot of getting-used-to, they have been removed from this setup. What remains are four environments (which you can find in the aforementioned [master thesis](http://dx.doi.org/10.18725/OPARU-50107) as well):
 
 - `abstract`: Provides an abstract section for the document.
 - `acknowledgements`: Provides an acknowledgements section for the document.
@@ -407,12 +407,12 @@ See the [tables module](#tables) for more information on tables.
 
 </details>
 
-At the moment, we have no detailed guide about how you can register your own floats to the new page ref counting mechanism. In short you have to use `\InitPageCounter{<float>}` with (ideally) the name of your floating environment, add a new hook which uses `\CountThisPage{<float>}{c@<float>@lb}` to count the floats at the begin of the environment (usually with something like `\AtBeginEnvironment{<float>}{\HookCustomEnvCount{<float file ext>}{<page count hook>}}`) and provide a counter rendering (`\the<float>` which usually relies on `\@formatcounter`). The [pseudo](#pseudocode) module provides an example for this, registering the `pseudo` float (see the [pseudocode.tex](_config/internal/pseudocode.tex) file).
+At the moment, we have no detailed guide about how you can register your own floats to the new page ref counting mechanism. In short, you have to use `\InitPageCounter{<float>}` with (ideally) the name of your floating environment, add a new hook which uses `\CountThisPage{<float>}{c@<float>@lb}` to count the floats at the beginning of the environment (usually with something like `\AtBeginEnvironment{<float>}{\HookCustomEnvCount{<float file ext>}{<page count hook>}}`) and provide a counter rendering (`\the<float>` which usually relies on `\@formatcounter`). The [pseudo](#pseudocode) module provides an example for this, registering the `pseudo` float (see the [pseudocode.tex](_config/internal/pseudocode.tex) file).
 
 #### Fonts
 
 This module, surprise, loads the default fonts used in this document and provides you with a semi-bold font-weight (accessible with the commands `\sbseries` and `\textsb{...}`).
-By default (and this is good believe me), we rely on [old-style figures](https://en.wikipedia.org/wiki/Text_figures) (also known as text figures) for numbers in the text. You can recognize them by the fact that they are not all on the same height and some of them even have depth (have a look at the `3` which hangs below the baseline).
+By default, (and this is good believe me), we rely on [old-style figures](https://en.wikipedia.org/wiki/Text_figures) (also known as text figures) for numbers in the text. You can recognize them by the fact that they are not all on the same height and some of them even have depth (have a look at the `3` which hangs below the baseline).
 If you do not like this (even only in a given scope), the `\LiningFigures` command switches to lining figures. As is usual, this happens automatically in tables (and math mode).
 In case you require a lot of math, the `enhanceMath` document class option updates the `\mathcal` style.
 
@@ -445,17 +445,17 @@ The default setup provides you with normal glossaries, acronyms, and symbols ("n
 have a look at the default [segments/glossary.tex](_config/segments/glossary.tex) file provided for sample definitions, and the [segments/introduction.tex](_config/segments/introduction.tex) file for a sample usage. Similar to the [bibliography module](#bibliography-support),
 `\noside{...}` and `\disablesidetrue` can be used to prevent glossary entries from appearing in the marginpar. Additionally, `\sidesymbol{...}` can be used to place a symbol (only) in the marginpar. Especially to show multiple symbols we offer `\showsymbols{...,...,...}` (which may be followed by an optional star to force their appearance).
 
-Besides those changes there is another, arguably opinionated change, which I (at least used to) feel relatively strongly about: custom replacement texts. If i have a glossary entry, for let's say "dataflow analysis" and I want to quote it in another context where "dataflow" suffices (e.g., in "dataflow and control flow analysis"), glossaries usually require you to either print the full term or to use one of their user fields to overwrite the text.
+Besides those changes there is another, arguably opinionated change, which I (at least used to) feel relatively strongly about: custom replacement texts. If I have a glossary entry, for let's say "dataflow analysis" and I want to quote it in another context where "dataflow" suffices (e.g., in "dataflow and control flow analysis"), glossaries usually require you to either print the full term or to use one of their user fields to overwrite the text.
 With this module, you can use brackets after the `\gls` command to overwrite the text: `\gls{dataflow-analysis}[dataflow]` will appear as a link named "dataflow" in the text, but still reference the full term in the glossary. While glossaries offers `\glslink` and `\glstext` for this purpose (and they should be readily available to you if you choose), I was never able to befriend them.
 
 #### Headers and Footers
 
 This module loads the [scrlayer-scrpage][] package of the [Koma-Script][koma] bundle and configures the `scrheadings` page styles, as well as the page number.
-The module used to provide a lot of linking shinannigans, but currently they have been not ported (as there was no demand).
+The module used to provide a lot of linking shenanigans, but currently they have been not ported (as there was no demand).
 
 #### Hyper References
 
-Hyper references allow you to link to other parts of the document or to external resources and they may be disabled by setting the `hyperref` option to false or passing the `nohyperref` option to the document class (although, to be honest, I have not needed this option for a long time).
+Hyper references allow you to link to other parts of the document or to external resources, and they may be disabled by setting the `hyperref` option to false or passing the `nohyperref` option to the document class (although, to be honest, I have not needed this option for a long time).
 
 Loading the [hyperref][], [bookmark][], [hypcap][], [nth][], [varioref][], and [cleveref][] package, there is already a plethora of macros you can use (icons are enabled by [fontawesome][]):
 
@@ -482,7 +482,7 @@ By default, we currently only offer the [CCBY](https://creativecommons.org/licen
 To add a license the approach is relatively straightforward:
 
 Go into the [license.tex](_config/internal/license.tex) file and add a new macro of name `\thesis@license@<LICENSE>`, you should already find a license like `\thesis@license@CCBY` there.
-Then, the macro has to do two things: provide a translation for the `license` text (see the [translations module](#translations)) and provide the icons to be used by defining the macro `\thesis@license@symbols` (the [ccicons][] package is favailable to provide the icons).
+Then, the macro has to do two things: provide a translation for the `license` text (see the [translations module](#translations)) and provide the icons to be used by defining the macro `\thesis@license@symbols` (the [ccicons][] package is available to provide the icons).
 
 #### Listings
 
@@ -522,24 +522,24 @@ The margin paragraphs module has the base control of over the sidebar, using a c
 - `\sidenote[<yshift>]{<content>}` typesets the content into the margin.\
   The starred variant `\sidenote*[<yshift>]{<content>}` relies on `\makenote*` when using the [scrlayer-notecolumn][] package and prevents the expansion of the content. These commands can be nested (which may appear accidentally) but may need additional passes to work, if you do not want nesting to appear, you can add a `\disablesidetrue` to the `\thesissidebarhook` (see below).
 - `\setmarginfont{<font>}` to set the font and color used in the margin.\
-  You can use `\marginfont` to access the current font (with [scrlayer-notecolumn][] there is technically the `notecolumn.marginpar` koma-font too, but this is not realiable with `draft` mode)
+  You can use `\marginfont` to access the current font (with [scrlayer-notecolumn][] there is technically the `notecolumn.marginpar` koma-font too, but this is not reliable with `draft` mode)
 - `\noside{...}` disables `\sidenote`(s) commands in its argument\
   You can use this to suppress automatic margin comments as introduced by commands like glossary entries or citations.
 - `\disablesidetrue` and `\disablesidefalse` can be used to disable and re-enable the margin comments in a region of your choice (even if this is the complete document)
 - `\thesisinverseragged` can be used within the `\sidenote` content and reverses the automatic ragging of the text.
-- `\thesissidebarhook` is a mccro which contains something that is to be executed within every sidebar note and you may use either `\appto\thesissidebarhook{...}` or `\preto\thesissidebarhook{...}` to append or prepend content to the hook.
+- `\thesissidebarhook` is a macro which contains something that is to be executed within every sidebar note and you may use either `\appto\thesissidebarhook{...}` or `\preto\thesissidebarhook{...}` to append or prepend content to the hook.
 
 #### Page Layout
 
 This module uses the [geometry][] package to configure the main layout of the thesis (papersize, ...), applying binding correction, margins, marginpar width, and the like.
-There are no new interesting commands that you should know about(/use) and if there are not clear requirements by your university, it is recommended to leave the layout as is.
+There are no new interesting commands that you should know about(/use) and if there are no clear requirements by your university, it is recommended to leave the layout as is.
 
 #### Pseudocode
 
 _Include the [pseudocode module](_config/internal/pseudocode.tex) with `\ThesisModule{pseudocode}`._
 
 This module relies on [algorithm2e][] to provide you with the capability to typeset pseudocode. As a side effect of registering a new `pseudo` float that you can use to that matter, it loads [float][] and [newfloat][] as well.
-Doing that yuo can typeset an algorithm like the following, in the document, you can reference inidivudal lines using `\AlgoLineRef{<label>}`:
+Doing that you can typeset an algorithm like the following, in the document, you can reference individual lines using `\AlgoLineRef{<label>}`:
 
 ```latex
 \begin{pseudo}[tbp]
@@ -555,7 +555,7 @@ Doing that yuo can typeset an algorithm like the following, in the document, you
    \lIf{x \KwIs "hello"}{
       \label{alg:important-line}\Return{"world"}
    }
-   \While{true}{
+   \While{true}{yuo
       \If{y \KwIs "world"}{
          \Return{"hello"}
       }
@@ -574,7 +574,7 @@ We do not do a lot of magic with tables, besides what we configure in the [float
 The titlepage module defines the commands you can use to [configure metadata](#configuring-metadata) (`\examiner`, `\titleimage`, ...) and loads some packages useful when creating the titlepage ([graphicx][], [ragged2e][], [enumitem][], and [tabularx][]).
 Yet, behavior wise there is not a lot of magic going on here.
 We overwrite the `\maketitle` command (and extend it with an optional argument you can use to specify the page number your titlepage should have: `\maketitle[2]` starts with page 2).
-Besides this we provide the `full-titlepage` environment which may then be used by the profiles (see the [Adapting for Other Universities or Institutes](#adapting-for-other-universities-or-institutes) section and the [`profile` option](#the-common-module)).
+Besides, this we provide the `full-titlepage` environment which may then be used by the profiles (see the [Adapting for Other Universities or Institutes](#adapting-for-other-universities-or-institutes) section and the [`profile` option](#the-common-module)).
 
 If you want to know the details, see the [uulm-sp/titlepage.tex](_config/profiles/uulm-sp/titlepage.tex) file for an example of a titlepage configuration.
 
