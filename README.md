@@ -56,10 +56,24 @@ Please note that the segments are just a generic suggestion, it is probably best
 
 ### Best Practices
 
+We strongly recommend you follow these practices (discussed with your supervisor).
+
+#### General Notes
+
 It is up to you and your supervisor whether you want to use the structure provided in this template (especially with regard to the files in the [segments](segments/) folder).
 In general, we block the `thesis.pdf` and a `signature` image (see the [declaration of authenticity](#declaration-of-authenticity) module) from being committed to the repository ([.gitignore](.gitignore)) and even if you rename that main file you should refrain from pushing compiled (blobs/) files to the repository to avoid cluttering it.
+
+#### Citations and Bibliography
+
+Whenever possible, try to use the bibliography entries provided by <https://dblp.org/> and ensure that a [DOI](https://www.doi.org/) is available for the respective entry (ask your supervisor whether a procured bibliography for important references is already available). When citing, make sure that references contain not just author, title, and year, but also the venue (e.g., the conference like ICSE, MSR, ASE, or a journal like TSE, TOSEM, or JSS).
+This includes presentations. Here an on-slide citation should read, e.g. "Sihler et al. (ICSE, 2025): On the Cuteness of Penguins".
+
+#### The Submitted Thesis
+
 **However**, to persist your final state in an easily accessible way, we encourage you to (at least at the University of Ulm) upload the compiled version of your final and submitted thesis to this repository as well.
 Please use the format `<Surname><Firstname>-<Type>.pdf` for the file name, where `<Type>` is either `BachelorThesis` or `MasterThesis` (e.g., `SihlerFlorian-MasterThesis.pdf`).
+
+#### More Information on the Submission
 
 For more information on the actual submission, please consult your supervisor ([FAQ Page of Ulm University](https://www.uni-ulm.de/studium/pruefungsverwaltung/pruefungen-und-module-faq/)).
 
