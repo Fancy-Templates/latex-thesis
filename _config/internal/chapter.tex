@@ -34,7 +34,7 @@
    \let\babel@toc\@gobbleignoretwo
    \vspace*{\dimexpr\bigskipamount+2.5pt}\noindent
    \value{tocdepth}=\sectiontocdepth
-   \noindent\ignorespaces\listoftoc*{#1}%
+   \noindent\ignorespaces\noside{\listoftoc*{#1}}%
    \bigskip\endgraf
 }
 }
@@ -45,7 +45,7 @@
    \else
       \begin{minipage}{\linewidth}
       \value{tocdepth}=\sectiontocdepth% we want entries down to subsection
-      \listoftoc*{\thesis@ext@current@chaptoc}% show the toc without header
+      \noside{\listoftoc*{\thesis@ext@current@chaptoc}}% show the toc without header
       \end{minipage}%
       \bigskip\noindent\ignorespaces% add some vertical space after the toc and do not indent the following text
    \fi

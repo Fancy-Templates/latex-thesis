@@ -32,8 +32,13 @@
 \Crefname{lstlisting}{Listing}{Listings}%
 
 \DeclareCommandCopy\thesis@lstlistoflistings\lstlistoflistings
-\def\lstlistoflistings{\bgroup\hypersetup{allcolors=.}\thesis@lstlistoflistings\egroup}
+\def\lstlistoflistings{\bgroup\hypersetup{allcolors=.}\noside{\thesis@lstlistoflistings}\egroup}
 \appto\captionsngerman{\def\lstlistlistingname{Liste an Code}}
 \appto\captionsenglish{\def\lstlistlistingname{List of Listings}}
+
+\preto\tableofcontents{\disablesidetrue}\appto\tableofcontents{\disablesidefalse}
+\preto\listoffigures{\disablesidetrue}\appto\listoffigures{\disablesidefalse}
+\preto\listoftables{\disablesidetrue}\appto\listoftables{\disablesidefalse}
+
 
 \makeatother
