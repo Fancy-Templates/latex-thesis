@@ -110,6 +110,26 @@ In the \nameref{fun:good-algo} algorithm \cref{fun:good-algo}, an important line
 
 We can now reference \ref{rq:concept} or with cleveref: \cref{rq:concept}.
 
+You can also reference default enumerate elements:
+
+\begin{enumerate}
+   \item \label{item:rando}First item
+   \item Second item
+\end{enumerate}
+
+With ref: \enquote{\ref{item:rando}}, on page \pageref{item:rando}, and cref: \enquote{\cref{item:rando}}. 
+
+\needspace{5\baselineskip}
+But please, if there is any sense in doing so make use of, e.g., \texttt{ref} by \texttt{enumitem}:
+
+\begin{enumerate}[ref={Penguin Element \arabic*}]
+   \item \label{item:rando2}First item
+   \item Second item
+\end{enumerate}
+
+With ref: \enquote{\ref{item:rando2}}, on page \pageref{item:rando2}, and cref: \enquote{\cref{item:rando2}}.
+Using \texttt{\textbackslash newlist} you can also define your own lists, e.g., for research questions or contributions and give them your own ref names~--- see, e.g., \texttt{rqs} for an example.
+
 
 \begin{minted}[float,caption={A floating caption},label=jeah]{R}
 x <- list(i='hey', j='there')
