@@ -369,7 +369,8 @@ Originally, this module provided much more, a huge collection of macros which th
 - `abstract`: Provides an abstract section for the document.
 - `acknowledgements`: Provides an acknowledgements section for the document.
 - `conventions`: Provides a conventions section for the document.
-- `rqs`: Provides a research questions enumerate list (which can be nested)
+- `rqs`: Provides a "research questions" enumerate list (which can be nested)
+- `contributions`: Similar to `rqs`, but for your contributions.
 
 #### Floats
 
