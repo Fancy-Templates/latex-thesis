@@ -518,7 +518,7 @@ If you load the listings module you gain all features provided by the [xlistings
 - With `\xlstlangoverride{<lang>}{<keys>}` you get language sensitive overrides:
 
   ```latex
-  \xlstlangoverride{R}{
+  \xlstlangoverride{lR}{
       morekeywords={example,bexample},
       add to literate={:pi:}{\(\mathcolor{red}{\pi}\)}{1}
   }
