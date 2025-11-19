@@ -12,7 +12,8 @@ This readme serves several purposes:
 3. [Full Reference](#full-reference):\
    Provide a more thorough reference of the commands and environments provided by the template
 
-See the [ai-rules-uulm.md](./ai-rules-uulm.md) for the rules regarding the use of AI in theses specifically at Ulm University.
+See the [ai-rules-uulm.md](./ai-rules-uulm.md) for the rules regarding the use of AI in theses specifically at Ulm University. Have a look at the [rep-package-guidelines.md](./rep-package-guidelines.md) for the guidelines regarding reproducibility packages for theses.
+Finally, consider the [writing guidelines](https://github.com/sp-uulm/writing-guidelines) for the SP Institute at Ulm University.
 
 > Originally, I ([Florian][homepage]) created the basis of this template for my [bachelor's thesis][doi-ba] and minified it on request for my [master's thesis][doi-ma]. Even though I invested a lot of effort since then to make it standalone (and much, much, much easier to use), there are still some parts that are not as polished as they should be (and many modules not ported).
 >
@@ -57,6 +58,7 @@ Please note that the segments are just a generic suggestion, it is probably best
 ### Best Practices
 
 We strongly recommend you follow these practices (discussed with your supervisor).
+Please also consider the [writing guidelines](https://github.com/sp-uulm/writing-guidelines) for the SP Institute at Ulm University.
 
 #### General Notes
 
