@@ -2,7 +2,16 @@
 
 [![Static Badge](https://img.shields.io/badge/LaTeX-Inside-blue?style=for-the-badge&labelColor=darkorange&color=white)](https://www.latex-project.org/)
 
-This thesis was originally designed for bachelor's and master's theses at [Ulm University][sp-institute], but can be easily adapted to other universities and, e.g., doctoral dissertations.
+## Mirrors
+This repository is available at the following locations:
+- Main repo: https://gitlab.uni-ulm.de/sp/sp-thesis-package/latex/thesis (login required).
+- Mirror 1: https://github.com/Fancy-Templates/latex-thesis
+- Mirror 2: https://spgit.informatik.uni-ulm.de/teaching/sp-thesis-package/latex/thesis
+
+The mirrors allow for forking on github or internal gitlab (see below [Setting Up](#setting-up)). 
+
+## Introduction
+This thesis template was originally designed for bachelor's and master's theses at [Ulm University][sp-institute], but can be easily adapted to other universities and, e.g., doctoral dissertations.
 This readme serves several purposes:
 
 1. [Setting Up](#setting-up):\
@@ -12,13 +21,15 @@ This readme serves several purposes:
 3. [Full Reference](#full-reference):\
    Provide a more thorough reference of the commands and environments provided by the template
 
-See the [ai-rules-uulm.md](./ai-rules-uulm.md) for the rules regarding the use of AI in theses specifically at Ulm University. Have a look at the [rep-package-guidelines.md](./rep-package-guidelines.md) for the guidelines regarding reproducibility packages for theses.
-Finally, consider the [writing guidelines](https://github.com/sp-uulm/writing-guidelines) for the SP Institute at Ulm University.
+See the [ai-rules-uulm.md][ai-rules] for the rules regarding the use of AI in theses specifically at Ulm University. Have a look at the [rep-package-guidelines.md][rep-package] for the guidelines regarding reproducibility packages for theses. Finally, consider the [writing guidelines][writing-guidelines].
+
+For a complete description of the current process writing a thesis at the [SP Institute](https://www.uni-ulm.de/in/sp) at Ulm University, we refer to the corresponding [Moodle course](https://moodle.uni-ulm.de/course/view.php?id=26468) (login required).
+
 
 > Originally, I ([Florian][homepage]) created the basis of this template for my [bachelor's thesis][doi-ba] and minified it on request for my [master's thesis][doi-ma]. Even though I invested a lot of effort since then to make it standalone (and much, much, much easier to use), there are still some parts that are not as polished as they should be (and many modules not ported).
 >
 > If you encounter any problem, please write me an [email](mailto:florian.sihler@uni-ulm.de) or open an issue!
-> The same holds for feature and documentation request, do not hesitate to open [a new issue][new-issue]!
+> The same holds for feature and documentation request, do not hesitate to open a new issue on [github][new-issue-github] or [UUlm gitlab][new-issue-gitlab]!
 
 ## Setting Up
 
@@ -58,7 +69,7 @@ Please note that the segments are just a generic suggestion, it is probably best
 ### Best Practices
 
 We strongly recommend you follow these practices (discussed with your supervisor).
-Please also consider the [writing guidelines](https://github.com/sp-uulm/writing-guidelines) for the SP Institute at Ulm University.
+Please also consider the [writing guidelines][writing-guidelines] for the SP Institute at Ulm University.
 
 #### General Notes
 
@@ -629,7 +640,8 @@ This module loads and configures [siunitx][] to provide you with a set of comman
 [marginnote]: https://ctan.org/pkg/marginnote
 [minted]: https://ctan.org/pkg/minted
 [mparhack]: https://ctan.org/pkg/mparhack
-[new-issue]: https://github.com/Fancy-Templates/latex-thesis/issues/new
+[new-issue-github]: https://github.com/Fancy-Templates/latex-thesis/issues/new
+[new-issue-gitlab]: https://gitlab.uni-ulm.de/sp/sp-thesis-package/latex/thesis/-/issues/new?type=ISSUE&initialCreationContext=list-route
 [newfloat]: https://ctan.org/pkg/newfloat
 [nth]: https://ctan.org/pkg/nth
 [ragged2e]: https://ctan.org/pkg/ragged2e
@@ -642,3 +654,6 @@ This module loads and configures [siunitx][] to provide you with a set of comman
 [url]: https://ctan.org/pkg/url
 [varioref]: https://ctan.org/pkg/varioref
 [xlistings]: https://github.com/EagleoutIce/xlistings
+[ai-rules]: https://gitlab.uni-ulm.de/sp/sp-thesis-package/guidelines/-/jobs/artifacts/main/raw/ai-rules-uulm.md?job=build-pdf
+[rep-package]: https://gitlab.uni-ulm.de/sp/sp-thesis-package/guidelines/-/jobs/artifacts/main/raw/rep-package-guidelines.md?job=build-pdf
+[writing-guidelines]: https://gitlab.uni-ulm.de/sp/sp-thesis-package/guidelines/-/jobs/artifacts/main/raw/writing-guidelines.md?job=build-pdf
