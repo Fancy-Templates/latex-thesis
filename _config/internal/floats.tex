@@ -58,20 +58,20 @@
 \def\thesissettbl{\CountThisPage{table}{c@table@lb}}
 \def\thesissetsubfig{\CountThisPage{subfigure}{c@subfigure@lb}}
 \def\thesissetlst{\CountThisPage{lstlisting}{c@lstlisting@lb}}
-% we must hook to scr@caption, as with @caption the labels have been already issued (meaning \thetable etc. would refer to the last one - but only in references)
-\def\HookCountBare#1#2#3{\pretocmd#3{#2}\relax\relax}%
-\def\HookCount#1#2{\HookCountBare{#1}{#2}\scr@caption}%
-% hook against captions from newfloat environments
-\def\HookCustomEnvCount#1#2{\pretocmd\caption@iftype{#2}\relax\relax}
-\def\HookLstCount#1#2{\HookCountBare{#1}{#2}\lst@MakeCaption}
+
 \ifthesis@pageInFloatRef
-\AtBeginEnvironment{figure}   {\HookCount{lof}{\thesissetfig}}
-\AtBeginEnvironment{subfigure}{\HookCount{lof}{\thesissetsubfig}}
-\AtBeginEnvironment{table}    {\HookCount{lot}{\thesissettbl}}
-\AtBeginEnvironment{longtable}{\HookCount{lot}{\thesissettbl}\HookCountBare{lot}{\thesissettbl}{\LT@capti@n}}
-\AtBeginEnvironment{tabularx} {\HookCount{lot}{\thesissettbl}}
-\AtBeginEnvironment{lstlisting}{\HookLstCount{lol}{\thesissetlst}}
-\AtBeginEnvironment{minted}{\HookLstCount{lol}{\thesissetlst}}
+\def\thesis@figure{figure}\def\thesis@table{table}\def\thesis@lstlisting{lstlisting}
+\def\thesis@subfigure{subfigure}
+\def\thesisfigurehooks{%
+    \ifx\@captype\thesis@figure\thesissetfig\fi
+    \ifx\@captype\thesis@table\thesissettbl\fi
+    \ifx\@captype\thesis@subfigure\thesissetsubfig\fi
+    \ifx\@captype\thesis@lstlisting\thesissetlst\fi
+}
+\AddToHook{cmd/caption/before}{%
+  \thesisfigurehooks
+}%
+\def\HookCustomEnvCount#1#2{\pretocmd\caption@iftype{#2}\relax\relax}
 \fi
 
 \appto\captionsngerman{\def\figurename{Abbildung}\def\figureautorefname{\figurename}\def\tablename{Tabelle}\def\tableautorefname{\tablename}}
