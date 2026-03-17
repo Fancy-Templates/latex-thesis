@@ -1,6 +1,6 @@
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
-  LATEX_IMAGE: registry.gitlab.com/islandoftex/images/texlive:TL2025-2025-08-24-full
+  LATEX_IMAGE: registry.gitlab.com/islandoftex/images/texlive:TL2026-2026-03-15-full
 
 build-pdf:
   image: $LATEX_IMAGE
