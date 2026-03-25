@@ -3,14 +3,17 @@
 [![Static Badge](https://img.shields.io/badge/LaTeX-Inside-blue?style=for-the-badge&labelColor=darkorange&color=white)](https://www.latex-project.org/)
 
 ## Mirrors
-This repository is available at the following locations:
-- Main repo: https://gitlab.uni-ulm.de/sp/sp-thesis-package/latex/thesis (login required).
-- Mirror 1: https://github.com/Fancy-Templates/latex-thesis
-- Mirror 2: https://spgit.informatik.uni-ulm.de/teaching/sp-thesis-package/latex/thesis
 
-The mirrors allow for forking on github or internal gitlab (see below [Setting Up](#setting-up)). 
+This repository is available at the following locations:
+
+- Main repo: <https://gitlab.uni-ulm.de/sp/sp-thesis-package/latex/thesis> (login required)
+- Mirror 1: <https://github.com/Fancy-Templates/latex-thesis>
+- Mirror 2: <https://spgit.informatik.uni-ulm.de/teaching/sp-thesis-package/latex/thesis> (login required)
+
+The mirrors allow for forking on github or internal gitlab (see below [Setting Up](#setting-up)).
 
 ## Introduction
+
 This thesis template was originally designed for bachelor's and master's theses at [Ulm University][sp-institute], but can be easily adapted to other universities and, e.g., doctoral dissertations.
 This readme serves several purposes:
 
@@ -156,7 +159,6 @@ You just may want to update the [.gitlab-ci.yml](.gitlab-ci.yml) file (moving it
 
 If you still want to receive updates there is no "automated" way, so you probably have to do it via patches.
 You can create a [patch](https://git-scm.com/docs/git-apply) from the template repository using `git diff > myPatch.patch` and apply it to your repository using `git apply myPatch.patch`.
-
 
 ### Building the Thesis
 
@@ -377,7 +379,7 @@ For an example, have a look at the color definition of the `uulm-sp` profile in 
 
 #### Useful Environments
 
-Originally, this module provided much more, a huge collection of macros which the original author (me ✨) found useful in his thesis. However, as these require a lot of getting-used-to, they have been removed from this setup. What remains are four environments (which you can find in the aforementioned [master thesis](http://dx.doi.org/10.18725/OPARU-50107) as well):
+Originally, this module provided much more, a huge collection of macros which the original author (me&nbsp;✨) found useful in his thesis. However, as these require a lot of getting-used-to, they have been removed from this setup. What remains are four environments (which you can find in the aforementioned [master thesis](http://dx.doi.org/10.18725/OPARU-50107) as well):
 
 - `abstract`: Provides an abstract section for the document.
 - `acknowledgements`: Provides an acknowledgements section for the document.
@@ -388,7 +390,7 @@ Originally, this module provided much more, a huge collection of macros which th
 #### Floats
 
 This module uses the [caption](https://ctan.org/pkg/caption) and the [subcaption](https://ctan.org/pkg/subcaption) package to configure the styling of floating elements (figures, tables, ...). It also provides the `subfigure` environment to group figures together.
-For example, it causes figures and tables to follow a non-standard numbering scheme which uses the page number as well as the occurrence count of a float of that type on that page. While this sounds complicated, `Figure 13A` simply states that this is the first figure on page 13, `Figure 13B` would be the second, and so on (fight me on this being a much better naming scheme for floats).
+For example, it causes figures and tables to follow a non-standard numbering scheme which uses the page number as well as the occurrence count of a float of that type on that page. While this sounds complicated, `Figure 13A` simply states that this is the first figure on page&nbsp;13, `Figure 13B` would be the second, and so on (fight me on this being a much better naming scheme for floats).
 If you (for whatever unfathomable reason) dislike this scheme, the [document class option](#the-common-module) `pageInFloatRef` can be set to false to revert to the default LaTeX numbering.
 This still leaves you with the tools to register your own (see below), but disables the automatic hooks into the float environments.
 
@@ -408,7 +410,7 @@ You can use the float environments (`figure`, `table`, ...) as well as captions 
 \end{figure}
 ```
 
-The caption will be the long version ("The great Divider of..."), while the list of figures will only show the short "The Divider" caption alternative. Within your document, you can refer to the figure using `\cref{fig:divider}` or `\namecref{fig:divider}` (which will print "Figure 13A" or "The Divider" respectively).
+The caption will be the long version ("The great Divider of..."), while the list of figures will only show the short "The Divider" caption alternative. Within your document, you can refer to the figure using `\cref{fig:divider}` or `\namecref{fig:divider}` (which will print "Figure&nbsp;13A" or "The Divider" respectively).
 
 </details>
 
