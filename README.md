@@ -280,6 +280,7 @@ flowchart TD
 
     font --- beramono("`<code>beramono</code>`")
     font --- fira("`<code>fira</code>`")
+    font --- notomath("`<code>notomath</code>`")
     font --- enhanceMath("`<code>enhanceMath</code>`")
     font --- fontsize("`<code>fontsize</code>`")
     font --- palatino("`<code>palatino</code>`")
