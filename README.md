@@ -239,6 +239,7 @@ Of course, not all options are equally important. Those of importance are at the
 | `nohyperref`      | false         | If set to true, the document will be compiled without hyper references (complements `hyperref`, see [hyper references](#hyper-references)).    |
 | `oneside`         | true          | If set to true, the document will be compiled in oneside mode (complements `twoside`).                                                         |
 | `palatino`        | true          | If set to false, the document will be compiled without the palatino font (see [fonts](#fonts)).                                                |
+| `notomath`        | true          | If set to false, the document will be compiled without the notomath font, using mathpazo (see [fonts](#fonts)).                                |
 | `paper`           | a4            | The paper size of the document (only change when agreed with your supervisor).                                                                 |
 | `print`           | false         | If set to true, the document will be compiled in print mode (complements the digital option).                                                  |
 | `rmtitle`         | true          | If set to false, the document will be compiled with a sans-serif title (see [fonts](#fonts), complements `sftitle`).                           |

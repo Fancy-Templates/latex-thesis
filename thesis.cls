@@ -40,6 +40,7 @@
 % fonts
 \DeclareBoolOption[true]{beramono}
 \DeclareBoolOption[true]{palatino}
+\DeclareBoolOption[true]{notomath}
 \DeclareBoolOption[true]{fira}
 
 \ProcessKeyvalOptions*

@@ -15,17 +15,26 @@
 \fi
 \else
 \RequirePackage[utf8]{inputenc}
+
 \ifthesis@palatino
     \thesis@debug{Loading Palatino font}
     \RequirePackage{tgpagella}
-    % \PassOptionsToPackage{}{mathpazo}
-    \RequirePackage[osf]{mathpazo}
-    % bold small caps definition by https://tex.stackexchange.com/a/418097
-    \AtBeginDocument{%
-        \DeclareFontShape{T1}{pplj}{b}{sc}{<-> ec-qplb-sc}{}
-        \DeclareFontShape{T1}{pplj}{bx}{sc}{<->ssub * qpl/b/sc}{}
-    }
 \fi
+
+\ifthesis@notomath
+\thesis@debug{Setup Noto Math font}
+\RequirePackage[vvarbb]{notomath}
+\else
+% \PassOptionsToPackage{}{mathpazo}
+\RequirePackage[osf]{mathpazo}
+% bold small caps definition by https://tex.stackexchange.com/a/418097
+\AtBeginDocument{%
+    \DeclareFontShape{T1}{pplj}{b}{sc}{<-> ec-qplb-sc}{}
+    \DeclareFontShape{T1}{pplj}{bx}{sc}{<->ssub * qpl/b/sc}{}
+}
+\fi
+
+
 \ifthesis@beramono
     \thesis@debug{Loading Beramono font}
     \PassOptionsToPackage{scaled=.85}{beramono}
@@ -46,7 +55,15 @@
 % % use lining figures in tables
 \ifluatex
 \RequirePackage{unicode-math}\def\LiningFigures{\addfontfeatures{Numbers=Lining}\sisetup{text-font-command=\addfontfeatures{Numbers=Lining}}}
-\else\def\LiningFigures{\figureversion{lf}\selectfont\sisetup{text-font-command=\figureversion{lf}\selectfont}}
+\ifthesis@notomath
+\thesis@debug{Setup Noto Math font}
+\AtEndPreamble{%
+    \PassOptionsToPackage{varbb}{notomath}
+    \RequirePackage{notomath}
+}
+\fi
+\else
+\def\LiningFigures{\figureversion{lf}\selectfont\sisetup{text-font-command=\figureversion{lf}\selectfont}}
 \fi
 
 \AtBeginEnvironment{tabular}{\LiningFigures}
