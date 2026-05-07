@@ -2,16 +2,10 @@
 \RequirePackage[T1]{fontenc}
 \PassOptionsToPackage{protrusion=true,expansion=true,tracking=true,nopatch=toc}{microtype}
 \RequirePackage{microtype}
-\RequirePackage{tgpagella}
-\RequirePackage[vvarbb]{notomath}
-\PassOptionsToPackage{scaled=.85}{beramono}
-\RequirePackage{beramono}
-\RequirePackage{FiraSans}
-\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
-\AtEndPreamble{%
-    \PassOptionsToPackage{varbb}{notomath}
-    \RequirePackage{notomath}
-}
+
+\usepackage{lmodern}
+\usepackage{libertine}
+
 \usepackage[english]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -43,8 +37,7 @@
 \usepackage[bottom]{footmisc}
 \addtolength{\skip\footins}{2pc}
 
-\usepackage{lmodern}
-\usepackage{libertine}
+
 
 \renewcommand{\familydefault}{\sfdefault}
 \renewcommand{\ttdefault}{lmtt}
@@ -71,12 +64,14 @@
         {\begin{center}
              {\LARGE Proposal --- \@title}\\
             { \@thesistype's Thesis Proposal} \\
-            \@author, \@date
+
     \end{center}
 
     \begin{tabular}{ll}
+        Author:& \@author\\
         Advisor:& \@advisor\\
-        Reviewer:& \@supervisor
+        Reviewer:& \@supervisor\\
+        Planned Registration:& \@date
     \end{tabular}
     }} % Note the extra }
 \makeatother
