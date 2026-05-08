@@ -1,9 +1,10 @@
+% !TeX program = latexmk
 \documentclass[
     profile=tubs-isf,
 	verbose,
 	english,
-	type=bachelor-thesis, % master-thesis
-	field={{Computer Science}}, % change to your course of study/program
+	type=bachelor-thesis, % master-thesis %TODO
+	field={{Computer Science}}, % change to your course of study/program %TODO
 	license=CCBY, % CCBY, CCBYSA, CCBYNC, CCBYNCSA; open an issue if you need another license
 	%sftitle,  % sans-serif titles
 	paper=a4,  % forces A4 format
@@ -22,12 +23,12 @@
 % for the final page! (see below with `\makedeclarationofauthenticity)
 \ThesisModule{authenticity}
 % specify \signature{path/to/signature.png} to include a signature
-\signature{img/example_signature}
+\signature{img/example_signature} %TODO
 % you can also shift the signature with \signature[xshift=0pt,yshift=0pt]{path/to/signature.png}
 % if you want to set the location of the signature, use
 \signaturelocation{Braunschweig}
 % if you want to set the submission date of the declaration, use
-\signaturedate{2000-12-30}
+\signaturedate{1649-12-30} %TODO
 \makedeclarationofauthenticity % for a predefined declaration of authenticity
 % \begin{declarationofauthenticity} % when you want to write your own text
 % 	No, I definitely did not copy all my code from StackOverflow. I swear!
@@ -41,6 +42,8 @@
 \ThesisModule{listings}
 \LoadLanguage{R}
 
+\ThesisModule{featuremodels}
+
 \ThesisModule{units}
 
 \ThesisModule{pseudocode}
@@ -51,16 +54,16 @@
 \def\glssym#1{{\color{purple!80!blue}\gls{#1}}}
 
 % == Important Metadata
-\title{My Great Thesis with a Reaaaaally Reaaaaally Reaaaaally Long Title}
-\author{Your Amazing Name}
-\studentnumber{1234567}
+\title{My Thesis with a Reaaaaally Reaaaaally Reaaaaally Long Title} %TODO
+\author{Insert Your Name} %TODO
+\studentnumber{1234567} %TODO
 
-\titleimage[width=.75\linewidth]{img/title-banner-image}
-\date{\today}
+\titleimage[width=.75\linewidth]{img/title-banner-image} %TODO
+\date{\today} %TODO
 
-\examiner{Prof. Dr. Thomas Thüm}{Institute of Software Engineering and Automotive Informatics}
-\examiner{Your Second Examiner}{Their Institute}
-\supervisor{First Supervisor}{Institute of Software Engineering and Automotive Informatics}
+\examiner{Prof. Dr. Thomas Thüm}{Institute of Software Engineering and Automotive Informatics} %TODO
+\examiner{Your Second Examiner}{Their Institute} %TODO
+\supervisor{First Supervisor}{Institute of Software Engineering and Automotive Informatics} %TODO
 % \supervisor{Second Supervisor}{Their Institute}
 % == End of Important Metadata
 
