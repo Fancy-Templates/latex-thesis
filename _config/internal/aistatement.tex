@@ -1,0 +1,57 @@
+% Sidebar nutzen
+% Referenzstelle aus Kontext extrahieren
+
+\RequirePackage{csquotes}
+
+\newcounter{thesis@airefs}
+\setcounter{thesis@airefs}{0}
+
+\def\@aione{}
+\def\@aitwo{}
+
+\def\@aientry#1#2#3#4{
+    \begin{tabularx}{\linewidth}{@{}lX@{}}
+        \textbf{\translate{ai-tool}:}&#1\\
+        \textbf{\translate{ai-place}:}&#2\\
+        \textbf{\translate{ai-history}:}&#3\\
+        \textbf{\translate{ai-sentiment}:}&#4
+    \end{tabularx}
+}
+
+\def\aitypeone#1#2#3#4{
+    \listadd\@aione{{#1}{#2}{#3}{#4}}
+}
+
+\def\aitypetwo#1#2#3#4{
+    \listadd\@aitwo{{#1}{#2}{#3}{#4}}
+}
+
+
+
+\def\printaistatement{
+    \begingroup
+    \translate{ai-description}
+    \par\@sigskip\@signarea\thesis@voidpar\endgroup\bigskip\thesis@voidpar
+
+    \subsection*{Type 1 AI Systems}
+    \renewcommand\do[1]{\@aientry##1\par}
+    \dolistloop{\@aione}
+
+    \subsection*{Type 2 AI Systems}
+    \renewcommand\do[1]{\@aientry##1\par}
+    \dolistloop{\@aitwo}
+}
+
+\newcommand{\thesis@pagetarget}[2]{%
+  \phantomsection%
+  \label{#1}%
+  \hypertarget{#1}{#2}%
+}
+
+\def\aiquote#1#2#3#4{%
+    \stepcounter{thesis@airefs}%
+    \edef\thesis@mainjump{internal:main:\arabic{thesis@airefs}}%
+    \edef\thesis@backjump{internal:back:\arabic{thesis@airefs}}%
+    \blockquote{\thesis@pagetarget{\thesis@mainjump}{#4\footnote{\hyperref[\thesis@backjump]{AI quote~\expandafter\arabic{thesis@airefs}, see page~\pageref{\thesis@backjump}}}}}%
+    \aitypetwo{\thesis@pagetarget{\thesis@backjump}{#1}}{\hypersetup{hidelinks}\hyperref[\thesis@mainjump]{AI quote~\expandafter\arabic{thesis@airefs} on page~\pageref{\thesis@mainjump}}}{#2}{#3}%
+}
