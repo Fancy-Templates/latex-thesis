@@ -3,7 +3,7 @@
 
 \RequirePackage{csquotes}
 
-\newcounter{thesis@airefs}
+\newcounter{thesis@airefs}[chapter]
 \setcounter{thesis@airefs}{0}
 
 \def\@aione{}
@@ -44,14 +44,24 @@
 
 \newcommand{\thesis@pagetarget}[2]{%
   \phantomsection%
-  \label{#1}%
+  \label[thesis@airefs]{#1}%
   \hypertarget{#1}{#2}%
 }
 
+\newcommand\thesis@getcurrentref[1]{%
+ \ifnumequal{\value{#1}}{0}
+  {??}
+  {\the\value{#1}}%
+}
+
+
+% todo: environment?
 \def\aiquote#1#2#3#4{%
     \stepcounter{thesis@airefs}%
-    \edef\thesis@mainjump{internal:main:\arabic{thesis@airefs}}%
-    \edef\thesis@backjump{internal:back:\arabic{thesis@airefs}}%
-    \blockquote{\thesis@pagetarget{\thesis@mainjump}{#4\footnote{\hyperref[\thesis@backjump]{AI quote~\expandafter\arabic{thesis@airefs}, see page~\pageref{\thesis@backjump}}}}}%
-    \aitypetwo{\thesis@pagetarget{\thesis@backjump}{#1}}{\hypersetup{hidelinks}\hyperref[\thesis@mainjump]{AI quote~\expandafter\arabic{thesis@airefs} on page~\pageref{\thesis@mainjump}}}{#2}{#3}%
+    \edef\thesis@mainjump{internal:main:\thethesis@airefs:\thechapter}%
+    \edef\thesis@backjump{internal:back:\thethesis@airefs:\thechapter}%
+    \enquote{\thesis@pagetarget{\thesis@mainjump}{#4}}\footnote{\hyperref[\thesis@backjump]{AI quote~\expandafter\thesis@getcurrentref{chapter}.\expandafter\arabic{thesis@airefs}, see page~\pageref{\thesis@backjump}}}%
+    \aitypetwo{#1\thesis@pagetarget{\thesis@backjump}{}}{\hypersetup{hidelinks}\hyperref[\thesis@mainjump]{\cref{\thesis@mainjump}}}{#2}{#3}%
 }
+
+\crefname{thesis@airefs}{AI quote}{AI quotes}
