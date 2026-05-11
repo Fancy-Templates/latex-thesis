@@ -142,30 +142,32 @@ The thesis offers built-in support for LuaLaTeX (although _pdflatex_ is recommen
 Most modules are more and less modular so while they may rely on the built-in set, most of them should be adaptable outside of the thesis context. In the following list you can see which modules are included by default (✓) and what they provide.
 You can load the other modules by using, for example, `\ThesisModule{authenticity}` command in the preamble of your document (the sample structure should load some of those for you). If you have something that you want to contribute, feel free to open a pull request!
 
-|    | Module                                                      | Description                                                                       | (Internal) Source                                     |
-|:--:|:----------------------------------------------------------- |:--------------------------------------------------------------------------------- |:----------------------------------------------------- |
-| ✓  | [\<Common>](#the-common-module)                             | Common commands for the thesis                                                    | [thesis.cls](thesis.cls)                              |
-| ✓  | [Declaration of Authenticity](#declaration-of-authenticity) | Provide a page to sign that you created this thesis of your own work              | [authenticity.tex](_config/internal/authenticity.tex) |
-| ✓  | [Bibliography Support](#bibliography-support)               | Provide support for a bibliography                                                | [biblatex.tex](_config/internal/biblatex.tex)         |
-| ✓  | [Chapters and Minitocs](#chapters-and-minitocs)             | Styles the chapters, their summaries, and tocs                                    | [chapter.tex](_config/internal/chapter.tex)           |
-| ✓  | [Colors](#colors)                                           | Provide a set of colors for the thesis                                            | [colors.tex](_config/internal/colors.tex)             |
-| ✓  | [Useful Environments](#useful-environments)                 | Provide a set of hopefully useful environments (abstract, acknowledgements, ...)  | [environments.tex](_config/internal/environments.tex) |
-| ✓  | [Floats](#floats)                                           | Configure the styling of floating elements (figures, ...) including their counter | [floats.tex](_config/internal/floats.tex)             |
-| ✓  | [Fonts](#fonts)                                             | Configure the fonts used in the thesis                                            | [fonts.tex](_config/internal/fonts.tex)               |
-| ✓  | [Footnote](#footnote)                                       | Footnotes that appear in the sidebar                                              | [footnote.tex](_config/internal/footnote.tex)         |
-| ✓  | [Glossary](#glossary)                                       | Provide support for a glossary                                                    | [glossary.tex](_config/internal/glossary.tex)         |
-| ✓  | [Headers and Footers](#headers-and-footers)                 | Configure the headers and footers                                                 | [headfoot.tex](_config/internal/headfoot.tex)         |
-| ✓  | [Hyper References](#hyper-references)                       | Configure the hyper references                                                    | [hyperref.tex](_config/internal/hyperref.tex)         |
-| ✓  | [General Layout](#general-layout)                           | Configure the general layout (including widow handling)                           | [layout.tex](_config/internal/layout.tex)             |
-| ✓  | [Licensing](#licensing)                                     | Provide license information                                                       | [license.tex](_config/internal/license.tex)           |
-| ✓  | [Listings](#listings)                                       | Provide support for code snippets (using the [xlistings][] backend)               | [listings.tex](_config/internal/listings.tex)         |
-| ✓  | [Margin Paragraphs](#margin-paragraphs)                     | Configure the content of the margin                                               | [marginpar.tex](_config/internal/marginpar.tex)       |
-| ✓  | [Page Layout](#page-layout)                                 | Configure the page layout                                                         | [page.tex](_config/internal/page.tex)                 |
-|    | [Pseudocode](#pseudocode)                                   | Provide support for pseudocode                                                    | [pseudocode.tex](_config/internal/pseudocode.tex)     |
-| ✓  | [Tables](#tables)                                           | Configure the styling of tables                                                   | [tables.tex](_config/internal/tables.tex)             |
-| ✓  | [Titlepage](#titlepage)                                     | Styling for the titlepage                                                         | [titlepage.tex](_config/internal/titlepage.tex)       |
-| ✓  | [Translations](#translations)                               | Provide translation support for the template/document                             | [translations.tex](_config/internal/translations.tex) |
-|    | [Units](#units)                                             | Provide support for (si-)units                                                    | [units.tex](_config/internal/units.tex)               |
+|    | Module                                                      | Description                                                                            | (Internal) Source                                     |
+|:--:|:------------------------------------------------------------|:---------------------------------------------------------------------------------------|:------------------------------------------------------|
+| ✓  | [\<Common>](#the-common-module)                             | Common commands for the thesis                                                         | [thesis.cls](thesis.cls)                              |
+| ✓  | [AI Statement](#ai-statement)                               | Provide a page to sign that you followed the AI guidelines and commands for disclosure | [aistatement.tex](_config/internal/aistatement.tex)   |
+| ✓  | [Declaration of Authenticity](#declaration-of-authenticity) | Provide a page to sign that you created this thesis of your own work                   | [authenticity.tex](_config/internal/authenticity.tex) |
+| ✓  | [Bibliography Support](#bibliography-support)               | Provide support for a bibliography                                                     | [biblatex.tex](_config/internal/biblatex.tex)         |
+| ✓  | [Chapters and Minitocs](#chapters-and-minitocs)             | Styles the chapters, their summaries, and tocs                                         | [chapter.tex](_config/internal/chapter.tex)           |
+| ✓  | [Colors](#colors)                                           | Provide a set of colors for the thesis                                                 | [colors.tex](_config/internal/colors.tex)             |
+| ✓  | [Useful Environments](#useful-environments)                 | Provide a set of hopefully useful environments (abstract, acknowledgements, ...)       | [environments.tex](_config/internal/environments.tex) |
+| ✓  | [Floats](#floats)                                           | Configure the styling of floating elements (figures, ...) including their counter      | [floats.tex](_config/internal/floats.tex)             |
+| ✓  | [Fonts](#fonts)                                             | Configure the fonts used in the thesis                                                 | [fonts.tex](_config/internal/fonts.tex)               |
+| ✓  | [Footnote](#footnote)                                       | Footnotes that appear in the sidebar                                                   | [footnote.tex](_config/internal/footnote.tex)         |
+| ✓  | [Glossary](#glossary)                                       | Provide support for a glossary                                                         | [glossary.tex](_config/internal/glossary.tex)         |
+| ✓  | [Headers and Footers](#headers-and-footers)                 | Configure the headers and footers                                                      | [headfoot.tex](_config/internal/headfoot.tex)         |
+| ✓  | [Hyper References](#hyper-references)                       | Configure the hyper references                                                         | [hyperref.tex](_config/internal/hyperref.tex)         |
+| ✓  | [General Layout](#general-layout)                           | Configure the general layout (including widow handling)                                | [layout.tex](_config/internal/layout.tex)             |
+| ✓  | [Licensing](#licensing)                                     | Provide license information                                                            | [license.tex](_config/internal/license.tex)           |
+| ✓  | [Listings](#listings)                                       | Provide support for code snippets (using the [xlistings][] backend)                    | [listings.tex](_config/internal/listings.tex)         |
+| ✓  | [Margin Paragraphs](#margin-paragraphs)                     | Configure the content of the margin                                                    | [marginpar.tex](_config/internal/marginpar.tex)       |
+| ✓  | [Page Layout](#page-layout)                                 | Configure the page layout                                                              | [page.tex](_config/internal/page.tex)                 |
+|    | [Pseudocode](#pseudocode)                                   | Provide support for pseudocode                                                         | [pseudocode.tex](_config/internal/pseudocode.tex)     |
+| ✓  | [Tables](#tables)                                           | Configure the styling of tables                                                        | [tables.tex](_config/internal/tables.tex)             |
+| ✓  | [Task Description](#task-description)                       | Appends a signed task description and your proposal                                    | [proposal.tex](_config/internal/proposal.tex)         |
+| ✓  | [Titlepage](#titlepage)                                     | Styling for the titlepage                                                              | [titlepage.tex](_config/internal/titlepage.tex)       |
+| ✓  | [Translations](#translations)                               | Provide translation support for the template/document                                  | [translations.tex](_config/internal/translations.tex) |
+|    | [Units](#units)                                             | Provide support for (si-)units                                                         | [units.tex](_config/internal/units.tex)               |
 
 #### The Common Module
 
@@ -260,6 +262,10 @@ Besides this, the common module provides some useful commands:
 
 - `\ThesisModule{<name>}`: Load a module (if available) for the thesis.
 - `\InputFrom{<path>}`: Add a path to the input path (so you do not have to specify it in the `\input` command). For example, `\InputFrom{segments}` allows you to use `\input{introduction}` instead of `\input{segments/introduction}`. This may also help when using the template as a [submodule](#using-a-submodule) or [from a different directory](#working-from-a-different-directory).
+
+#### AI Statement
+
+This module creates an AI statement based on the ISF AI guidelines at the end of the thesis. To add disclosures, you either add `\aitypeone{Tool}{Used in}{History/Prompt}{Sentiment}` or `\aitypetwo{Tool}{Used in}{History/Prompt}{Sentiment}` commands to [ai-entries.tex](segments/ai-entries.tex) or use `\aiquote{Tool}{History/Prompt}{Sentiment}{AI Quote}` to add a type 2 quote at this position.
 
 #### Declaration of Authenticity
 
@@ -558,6 +564,9 @@ Doing that you can typeset an algorithm like the following, in the document, you
 #### Tables
 
 We do not do a lot of magic with tables, besides what we configure in the [float](#floats) module. In short, we load the [array][], [booktabs][], [tabularx][], and [longtable][] packages providing you with great commands such as `\toprule`, `\midrule`, and `\bottomrule` to create beautiful tables. Please have a look at the respective package documentation (especially that for [booktabs][]) or have a look at the sample [introduction.tex](segments/introduction.tex) file.
+
+#### Task Description
+If this is necessitated by your study office, this module appends your proposal and a signed task description using the `\makeproposalinclusion{path-to-proposal}` command.
 
 #### Titlepage
 
