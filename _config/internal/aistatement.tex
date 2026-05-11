@@ -6,6 +6,8 @@
 \newcounter{thesis@airefs}[chapter]
 \setcounter{thesis@airefs}{0}
 
+\crefname{thesis@airefs}{AI quote}{AI quotes}
+
 \def\@aione{}
 \def\@aitwo{}
 
@@ -54,14 +56,28 @@
   {\the\value{#1}}%
 }
 
+\def\thesis@aihelper#1#2#3#4#5{%4main 5back
+    \def\arga{#1}%
+    \def\argb{#2}%
+    \def\argc{#3}%
+    \edef\argd{#4}%
+    \edef\arge{#5}%
+    \expanded{%
+        \noexpand\aitypetwo
+        {\arga\noexpand\thesis@pagetarget{\arge}{}}%
+        {\noexpand\hypersetup{hidelinks}\noexpand\hyperref[\argd]{AI quote~\expandafter\thesis@getcurrentref{chapter}.\expandafter\arabic{thesis@airefs}}\noexpand\sidenote{\noexpand\hyperref[\argd]{\textcolor{black}{\noexpand\hyperlinksymbol{} AI quote~\expandafter\thesis@getcurrentref{chapter}.\expandafter\arabic{thesis@airefs} on page~\noexpand\pageref*{\argd}}}}}%
+        {\noexpand\argb}%
+        {\noexpand\argc}%
+    }
+}
+
 
 % todo: environment?
 \def\aiquote#1#2#3#4{%
     \stepcounter{thesis@airefs}%
     \edef\thesis@mainjump{internal:main:\thethesis@airefs:\thechapter}%
     \edef\thesis@backjump{internal:back:\thethesis@airefs:\thechapter}%
-    \enquote{\thesis@pagetarget{\thesis@mainjump}{#4}}\footnote{\hyperref[\thesis@backjump]{AI quote~\expandafter\thesis@getcurrentref{chapter}.\expandafter\arabic{thesis@airefs}, see page~\pageref{\thesis@backjump}}}%
-    \aitypetwo{#1\thesis@pagetarget{\thesis@backjump}{}}{\hypersetup{hidelinks}\hyperref[\thesis@mainjump]{\cref{\thesis@mainjump}}}{#2}{#3}%
+    \enquote{\thesis@pagetarget{\thesis@mainjump}{#4}}\footnote{\hyperref[\thesis@backjump]{AI quote~\expandafter\thesis@getcurrentref{chapter}.\expandafter\arabic{thesis@airefs}, see page~\pageref*{\thesis@backjump}}}%
+    \thesis@aihelper{#1}{#2}{#3}{\thesis@mainjump}{\thesis@backjump}%
 }
 
-\crefname{thesis@airefs}{AI quote}{AI quotes}
