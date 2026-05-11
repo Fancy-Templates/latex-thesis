@@ -1,6 +1,6 @@
 \RequirePackage{pdfpages}
 
-\def\makeproposalinclusion{
+\def\makeproposalinclusion#1{
     \AtEndDocument{
         \cleardoublepage\thispagestyle{plain}\begingroup\section*{\translate{task}}
 
@@ -8,6 +8,6 @@
 
         \par\@sigskip\@signarea\thesis@voidpar\endgroup\bigskip\thesis@voidpar
         \clearpage
-        \includepdf[pages=-, fitpaper]{proposal/proposal}
+        \includepdf[pages=-, fitpaper]{#1}
     }
 }
