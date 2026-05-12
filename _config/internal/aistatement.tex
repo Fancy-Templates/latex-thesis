@@ -9,9 +9,9 @@
 \crefname{thesis@airefs}{AI quote}{AI quotes}
 
 \def\thesis@aione{}
-\newtoggle{thesis@aionetog}
+\newbool{thesis@aionetog}
 \def\thesis@aitwo{}
-\newtoggle{thesis@aitwotog}
+\newbool{thesis@aitwotog}
 
 \def\@aientry#1#2#3#4{
     \begin{tabularx}{\linewidth}{@{}lX@{}}
@@ -24,12 +24,12 @@
 
 \def\aitypeone#1#2#3#4{
     \listadd\thesis@aione{{#1}{#2}{#3}{#4}}
-    \global\toggletrue{thesis@aionetog}
+    \global\booltrue{thesis@aionetog}
 }
 
 \def\aitypetwo#1#2#3#4{
     \listadd\thesis@aitwo{{#1}{#2}{#3}{#4}}
-    \global\toggletrue{thesis@aitwotog}
+    \global\booltrue{thesis@aitwotog}
 }
 
 
@@ -41,8 +41,8 @@
 
     \section*{Instance Listing}
     \subsection*{Type 1 AI Systems}
-    \iftoggle{thesis@aionetog}{%
-        \renewcommand\do[1]{\@aientry##1\par}%
+    \ifbool{thesis@aionetog}{%
+        \renewcommand{\do}[1]{\@aientry##1}
         \dolistloop{\thesis@aione}%
     }{%
         No use of type 1 AI tools reported.
@@ -50,9 +50,9 @@
 
 
     \subsection*{Type 2 AI Systems}
-    \iftoggle{thesis@aitwotog}{%
-        \renewcommand\do[1]{\@aientry##1\par}
-        \dolistloop{\thesis@aitwo}
+    \ifbool{thesis@aitwotog}{%
+        \renewcommand{\do}[1]{\@aientry##1}
+        \dolistloop{\thesis@aitwo}%
     }{%
         No use of type 2 AI tools reported.
     }
