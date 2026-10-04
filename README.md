@@ -195,6 +195,7 @@ You can load the other modules by using, for example, `\ThesisModule{authenticit
 |     | [Declaration of Authenticity](#declaration-of-authenticity) | Provide a page to sign that you created this thesis of your own work              | [authenticity.tex](_config/internal/authenticity.tex) |
 |  ✓  | [Bibliography Support](#bibliography-support)               | Provide support for a bibliography                                                | [biblatex.tex](_config/internal/biblatex.tex)         |
 |  ✓  | [Chapters and Minitocs](#chapters-and-minitocs)             | Styles the chapters, their summaries, and tocs                                    | [chapter.tex](_config/internal/chapter.tex)           |
+|     | [Code Links](#code-links)                                   | Link code in listings to its definition (using the [code-link][] package)         | [codelink.tex](_config/internal/codelink.tex)         |
 |  ✓  | [Colors](#colors)                                           | Provide a set of colors for the thesis                                            | [colors.tex](_config/internal/colors.tex)             |
 |  ✓  | [Useful Environments](#useful-environments)                 | Provide a set of hopefully useful environments (abstract, acknowledgements, ...)  | [environments.tex](_config/internal/environments.tex) |
 |  ✓  | [Floats](#floats)                                           | Configure the styling of floating elements (figures, ...) including their counter | [floats.tex](_config/internal/floats.tex)             |
@@ -640,7 +641,30 @@ If you load the listings module you gain all features provided by the [xlistings
 
 - You can enable language indicator badges with `\xlstmintedwithlangbadge` (for all minted environments) or with `\BadgeNextListing{<lang>}` for the next listing!
 
-The [xlistings][] package is part of this template under [./_config/xlistings.sty](./_config/xlistings.sty), if you want to update it for your template instance, you may want to use the [./_config/update_xlistings.sh](./_config/update_xlistings.sh) shellscript.
+For everything else, see the [xlistings documentation][xlistings-doc].
+The [xlistings][] package is part of this template under [./_config/xlistings.sty](./_config/xlistings.sty), if you want to update it for your template instance, you may want to use the [./_config/update_xlistings.sh](./_config/update_xlistings.sh) shellscript (it also updates [code-link](#code-links), which ships in the same bundle).
+
+#### Code Links
+
+_Include the [code links module](_config/internal/codelink.tex) with `\ThesisModule{codelink}` (this loads the [listings module](#listings) if it is not loaded already)._
+
+The module loads the [code-link][] package (part of the [xlistings][] bundle, see its [documentation][code-link-doc]) with the `underline` option. It collects definitions while typesetting and links every occurrence of them in your listings (and `minted` environments) to the place where they are defined. Like references, the links appear from the second run on.
+
+```latex
+\CodeLinkAnchor{fibonacci}           % the target, e.g., where you explain the function
+\CodeLinkAnchor[command]{mymacro}    % registers \mymacro (the backslash is added)
+\CodeLinkRef{fibonacci}              % link to the target in running text
+\begin{minted}{python}
+def fibonacci(n):                    # every fibonacci becomes a link
+    return n if n < 2 else fibonacci(n - 1) + fibonacci(n - 2)
+\end{minted}
+```
+
+- `\CodeLinkRegister[label=<label>]{<string>}` links a string to a target that exists elsewhere (e.g., a section or a theorem).
+- `\CodeLinkBlock{<string>}` registers a string that is matched as one unit but not linked (e.g., `System.out` so that `out` is not linked there).
+- Use `group=<name>` and `language=<lang>` to scope strings to a language, and `\CodeLinkSetup{...}` or `\CodeLinkStyle` to change the looks of the links.
+
+The [code-link][] package is part of this template under [./_config/code-link.sty](./_config/code-link.sty).
 
 #### Margin Paragraphs
 
@@ -758,6 +782,9 @@ This module loads and configures [siunitx][] to provide you with a set of comman
 [url]: https://ctan.org/pkg/url
 [varioref]: https://ctan.org/pkg/varioref
 [xlistings]: https://github.com/EagleoutIce/xlistings
+[xlistings-doc]: https://github.com/EagleoutIce/xlistings/blob/gh-pages/build/xlistings-doc.pdf
+[code-link]: https://github.com/EagleoutIce/xlistings#code-link
+[code-link-doc]: https://github.com/EagleoutIce/xlistings/blob/gh-pages/build/code-link-doc.pdf
 [ai-rules]: https://gitlab.uni-ulm.de/sp/sp-thesis-package/guidelines/-/jobs/artifacts/main/raw/ai-rules-uulm.md?job=build-pdf
 [rep-package]: https://gitlab.uni-ulm.de/sp/sp-thesis-package/guidelines/-/jobs/artifacts/main/raw/rep-package-guidelines.md?job=build-pdf
 [writing-guidelines]: https://gitlab.uni-ulm.de/sp/sp-thesis-package/guidelines/-/jobs/artifacts/main/raw/writing-guidelines.md?job=build-pdf
