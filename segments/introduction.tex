@@ -159,12 +159,13 @@ Using \texttt{\textbackslash newlist} you can also define your own lists, e.g., 
 \begin{minted}[float,caption={A floating caption},label=jeah]{R}
 x <- list(i='hey', j='there')
 for(i in x) {
-   print(paste("x$i", x$i))
+   print(paste("x$i", x$i))!*\label{lst:cool-line}*!
 }
 print(x)
 \end{minted}
 
-We can reference code as well, see: \cref{jeah}.
+We can reference code, see: \cref{jeah}.
+And lines of code as well, see: \cref{lst:cool-line}.
 
 Verbatim content such as a listing does not survive the way \texttt{sidefig} collects its body, which is what the starred \texttt{sidefig*} and \texttt{sidetbl*} environments are for.
 \begin{sidefig*}
